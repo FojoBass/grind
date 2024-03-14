@@ -1,0 +1,125 @@
+@use 'config' as *;
+
+.sidenav {
+  @include position(fixed, left, top, 0, 0);
+  width: 100%;
+  height: 100vh;
+  background-color: $bg_nav;
+  transition: ease $trans_mid;
+  transform: translateX(100%);
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  #{&}_opts {
+    @include position(absolute, right, top, 0, 0);
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    backdrop-filter: blur(10px);
+    padding-top: 150px;
+    padding-inline: 40px;
+
+    &::before {
+      content: '';
+      @include position(absolute, left, top, 0, 0);
+      width: 0.1rem;
+      height: 100%;
+      @include lineGrad(bottom, 10%);
+    }
+
+    @include media(min, $mid) {
+      width: 400px;
+    }
+
+    @include media(min, $lrg) {
+      display: none;
+    }
+
+    .sidenav_opt {
+      .sidenav_title {
+        @include flex(flex-start, center);
+        gap: 10px;
+        padding-block: 15px;
+        text-transform: capitalize;
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        position: relative;
+        cursor: pointer;
+
+        &:has(+ .drop_wrapper.active) {
+          .icon {
+            transform: rotate(90deg);
+            top: 2px;
+          }
+        }
+
+        &::before {
+          content: '';
+          @include position(absolute, left, top, 0, 0);
+          top: 50%;
+          left: -40px;
+          width: 20px;
+          height: 2px;
+          background-color: $clr_sub;
+          border-radius: 2px;
+          opacity: 0;
+          transition: ease $trans_short;
+        }
+
+        &.active {
+          color: $clr_hdg;
+
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        .icon {
+          position: relative;
+          top: 5px;
+          transition: ease $trans_short;
+        }
+      }
+
+      .drop_wrapper {
+        height: 0;
+        overflow: hidden;
+        transition: ease $trans_mid;
+
+        .drop_content {
+          border-left: 3px solid $bg_light;
+          padding-left: 20px;
+
+          .drop_opt {
+            padding-block: 15px;
+            font-size: 1.8rem;
+            text-transform: capitalize;
+            letter-spacing: 0.1rem;
+
+            .drop_opt_title {
+              position: relative;
+
+              &::before {
+                content: '';
+                width: 10px;
+                height: 2px;
+                background-color: $clr_sub;
+                @include position(absolute, left, top, -20px, 50%);
+                @include uniTranslate(Y, -50%);
+                opacity: 0;
+                transition: ease $trans_short;
+              }
+
+              &.active::before {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

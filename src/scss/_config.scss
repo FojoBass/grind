@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+$bg_main: #07090d;
+$bg_nav: #07090d50;
+$bg_line_grad: linear-gradient(to left, transparent, #f5f7fa27, transparent);
+$bg_sub: #1a1d24;
+$clr_acc: #569dff;
+$clr_hdg: #f5f7fa;
+$clr_txt: #c5c7ce;
+$clr_sub: #f5f7fa;
+$bg_light: #f5f7fa12;
+$xlrg: 1200px;
+$lrg: 1000px;
+$mid: 750px;
+$sml: 500px;
+$trans_short: 0.3s;
+$trans_mid: 0.5s;
+$trans_long: 1s;
+$pad_inline_gen: 20px;
+
+@mixin position($type, $x, $y, $x_val, $y_val) {
+  position: $type;
+  #{$x}: $x_val;
+  #{$y}: $y_val;
+}
+
+@mixin lineGrad($dir, $stop1: 0%) {
+  background: linear-gradient(
+    to #{$dir},
+    transparent $stop1,
+    #f5f7fa27,
+    transparent
+  );
+}
+
+@mixin biTranslate($x_val, $y_val) {
+  transform: translate($x_val, $y_val);
+}
+
+@mixin uniTranslate($axis, $val) {
+  transform: translate#{$axis }($val);
+}
+
+@mixin media($maxMin, $val) {
+  @media screen and (#{$maxMin}-width: $val) {
+    @content;
+  }
+}
+
+@mixin flex($justify, $align, $dir: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $dir;
+}

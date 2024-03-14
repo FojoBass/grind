@@ -1,0 +1,100 @@
+@use 'config' as *;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: $clr_txt;
+}
+
+:root {
+  font-size: 10px;
+
+  @include media(max, $lrg) {
+    font-size: 9px;
+  }
+}
+
+body {
+  background-color: $bg_main;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $clr_hdg;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  transition: all ease $trans_short;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  transition: all ease $trans_short;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.center_sect {
+  margin-inline: auto;
+  padding-inline: $pad_inline_gen;
+  padding-top: 200px;
+
+  @include media(max, $mid) {
+    max-width: $mid;
+  }
+
+  @include media(min, $mid) {
+    width: 600px;
+  }
+
+  @include media(min, $lrg) {
+    width: $lrg;
+  }
+
+  @include media(min, $xlrg) {
+    width: $xlrg;
+  }
+}
+
+.mouse_light {
+  --x: 50%;
+  --y: 50%;
+  width: 100vw;
+  height: 100vh;
+  @include position(fixed, left, top, 0, 0);
+  background: radial-gradient(
+    50vw circle at var(--x) var(--y),
+    $bg_light,
+    transparent 50%
+  );
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.cta_btn {
+  color: $clr_sub;
+  background-color: darken($clr_acc, 10%);
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: darken($clr_acc, 30%);
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
