@@ -52,7 +52,7 @@ img {
   object-fit: cover;
 }
 
-.img_wrapper {
+.img_wrapper:not(.logo_text .img_wrapper) {
   overflow: hidden;
 }
 

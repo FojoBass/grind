@@ -1,4 +1,5 @@
 'use client';
+import { useGlobalContext } from '@/context';
 import useClip from '@/hooks/useClip';
 import { OverlayPosEnum } from '@/types';
 import React, { useEffect, useRef } from 'react';
@@ -7,12 +8,14 @@ interface MediaWrapperint {
   children: React.ReactNode;
   elClass: string;
   pos: OverlayPosEnum;
+  intersectionRefs: React.MutableRefObject<HTMLElement[]>;
 }
 
 const MediaWrapper: React.FC<MediaWrapperint> = ({
   children,
   elClass,
   pos,
+  intersectionRefs,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -26,7 +29,6 @@ const MediaWrapper: React.FC<MediaWrapperint> = ({
         ].tagName.toLowerCase() === 'svg'
           ? (wrapperEl.children[wrapperEl.children.length - 2] as HTMLElement)
           : (wrapperEl.children[wrapperEl.children.length - 1] as HTMLElement);
-      console.log({ overEl });
 
       const clipId = useClip(bgEl, overEl, pos);
 

@@ -1,10 +1,18 @@
 @use 'config' as *;
 
+:root.animate {
+  .intersects {
+    transform: translate(0, 0) !important;
+    opacity: 1 !important;
+  }
+}
+
 #home_sect {
   .hero {
     .center_sect {
       padding-top: 150px;
       position: relative;
+      overflow: hidden;
 
       .top {
         @include media(min, $mid) {
@@ -31,6 +39,24 @@
           }
 
           span {
+            color: inherit;
+
+            &.span1 {
+              transition: all ease $gen_anim_trans;
+              transform: translateY(20px);
+              display: inline-block;
+              opacity: 0;
+            }
+
+            &.span2 {
+              transition: all ease $gen_anim_trans 150ms;
+              transform: translateY(20px);
+              display: inline-block;
+              opacity: 0;
+            }
+          }
+
+          .heading_highlight {
             color: $clr_acc;
           }
         }
@@ -41,6 +67,9 @@
           width: 260px;
           height: 155px;
           border-radius: $brd_rad_img;
+          transition: all ease $gen_anim_trans;
+          transform: translateX(30px);
+          opacity: 0;
 
           img {
             border-radius: $brd_rad_img;
@@ -66,6 +95,9 @@
           aspect-ratio: 2/1;
           border-radius: $brd_rad_img;
           overflow: hidden;
+          transition: all ease $gen_anim_trans;
+          transform: translate(-30px, -30px);
+          opacity: 0;
 
           @include media(min, $mid) {
             margin-bottom: 0;
@@ -81,6 +113,9 @@
         .info_box {
           display: none;
           text-align: right;
+          transition: all ease $gen_anim_trans;
+          transform: translateX(30px);
+          opacity: 0;
 
           @include media(min, $mid) {
             display: block;
@@ -113,6 +148,10 @@
           text-align: center;
           line-height: 1.4;
           margin-bottom: $margin_block_gen;
+          transition: all ease $gen_anim_trans;
+          transform: translateX(30px);
+          opacity: 0;
+
           @include media(min, $mid) {
             display: none;
           }
@@ -123,6 +162,13 @@
           flex-wrap: wrap;
           gap: 10px;
 
+          .link_wrapper {
+            --trans_delay: 0ms;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all ease $gen_anim_trans var(--trans_delay);
+          }
+
           .service_opt {
             border: 2px solid $bg_light;
             border-radius: 5px;
@@ -130,6 +176,7 @@
             text-transform: capitalize;
             padding: 5px 10px;
             color: $clr_hdg;
+            display: block;
 
             &:hover {
               background-color: $clr_acc;

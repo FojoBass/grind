@@ -20,6 +20,7 @@ $trans_long: 1s;
 $pad_inline_gen: 10px;
 $margin_block_gen: 20px;
 $brd_rad_img: 2rem;
+$gen_anim_trans: 1s;
 
 @mixin position($type, $x, $y, $x_val, $y_val) {
   position: $type;

@@ -37,7 +37,7 @@ const CustomLink: React.FC<LinkInt> = ({
 
     setTimeout(() => {
       router.push((e.target as HTMLElement).getAttribute('href') ?? '');
-    }, 1000);
+    }, 1500);
 
     dispatch && dispatch(false);
   };
