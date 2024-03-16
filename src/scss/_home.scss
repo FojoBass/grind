@@ -1,0 +1,146 @@
+@use 'config' as *;
+
+#home_sect {
+  .hero {
+    .center_sect {
+      padding-top: 150px;
+      position: relative;
+
+      .top {
+        @include media(min, $mid) {
+          @include flex(center, flex-start, column);
+        }
+
+        @include media(min, $lrg) {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        margin-bottom: $margin_block_gen;
+        .hero_heading {
+          font-size: 5.1rem;
+
+          @include media(min, $mid) {
+            width: 80%;
+          }
+
+          @include media(min, $lrg) {
+            width: 60%;
+            font-size: 6rem;
+          }
+
+          span {
+            color: $clr_acc;
+          }
+        }
+
+        .img_wrapper {
+          display: none;
+          margin-top: $margin_block_gen;
+          width: 260px;
+          height: 155px;
+          border-radius: $brd_rad_img;
+
+          img {
+            border-radius: $brd_rad_img;
+          }
+
+          @include media(min, $mid) {
+            display: block;
+            align-self: flex-end;
+          }
+
+          @include media(min, $lrg) {
+            width: 250px;
+            height: 150px;
+          }
+        }
+      }
+
+      .mid {
+        position: relative;
+        .video_wrapper {
+          width: 100%;
+          margin-bottom: $margin_block_gen;
+          aspect-ratio: 2/1;
+          border-radius: $brd_rad_img;
+          overflow: hidden;
+
+          @include media(min, $mid) {
+            margin-bottom: 0;
+          }
+
+          video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .info_box {
+          display: none;
+          text-align: right;
+
+          @include media(min, $mid) {
+            display: block;
+          }
+        }
+      }
+
+      .bottom {
+        @include media(min, $mid) {
+          @include position(
+            absolute,
+            left,
+            bottom,
+            calc($pad_inline_gen * 2),
+            calc(8rem + $margin_block_gen + $margin_block_gen)
+          );
+          width: 60%;
+        }
+
+        @include media(min, $lrg) {
+          width: 35%;
+        }
+
+        @include media(min, $xlrg) {
+          width: 30%;
+        }
+
+        .info {
+          font-size: 1.5rem;
+          text-align: center;
+          line-height: 1.4;
+          margin-bottom: $margin_block_gen;
+          @include media(min, $mid) {
+            display: none;
+          }
+        }
+
+        .services_wrapper {
+          @include flex(center, center);
+          flex-wrap: wrap;
+          gap: 10px;
+
+          .service_opt {
+            border: 2px solid $bg_light;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            padding: 5px 10px;
+            color: $clr_hdg;
+
+            &:hover {
+              background-color: $clr_acc;
+            }
+
+            @include media(min, $mid) {
+              background-color: $bg_main_op;
+            }
+          }
+        }
+      }
+    }
+  }
+}

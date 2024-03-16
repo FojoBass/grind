@@ -45,6 +45,7 @@ $trans_nav: 0.5s;
   backdrop-filter: blur(10px);
   @include position(fixed, left, top, 0, 0);
   width: 100%;
+  z-index: 5;
 
   &:after {
     content: '';
@@ -57,7 +58,7 @@ $trans_nav: 0.5s;
   nav {
     padding-inline: $pad_inline_gen;
     @include flex(space-between, center);
-    z-index: 5;
+    // z-index: 5;
     position: relative;
     margin-inline: auto;
     padding-block: 18px;
@@ -249,7 +250,7 @@ $trans_nav: 0.5s;
     }
 
     .menu_btn {
-      background-color: darken($clr_acc, 30%);
+      background-color: darken($clr_acc, 20%);
       @include flex(center, flex-start, column);
       gap: 5px;
       padding: 15px 12px;

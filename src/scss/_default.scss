@@ -46,10 +46,19 @@ ul {
   list-style-type: none;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img_wrapper {
+  overflow: hidden;
+}
+
 .center_sect {
   margin-inline: auto;
-  padding-inline: $pad_inline_gen;
-  padding-top: 200px;
+  padding: 8rem $pad_inline_gen;
 
   @include media(max, $mid) {
     max-width: $mid;
@@ -85,16 +94,38 @@ ul {
 
 .cta_btn {
   color: $clr_sub;
-  background-color: darken($clr_acc, 10%);
+  background-color: $clr_acc;
   border-radius: 1rem;
 
   &:hover {
-    background-color: darken($clr_acc, 30%);
+    background-color: darken($clr_acc, 20%);
   }
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.bottom_backlight {
+  background: radial-gradient(
+    100vw circle at center bottom,
+    $bg_light,
+    transparent 50%
+  );
+}
+
+.top_backlight {
+  background: radial-gradient(
+    100vw circle at center top,
+    $bg_light,
+    transparent 50%
+  );
+}
+
+.text_over_top {
+  @include position(absolute, right, top, 0, 0);
+  width: 250px;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  @include media(min, $xlrg) {
+    width: 300px;
+  }
 }

@@ -12,3 +12,8 @@ export interface ServiceOptInt {
   title: string;
   url: string;
 }
+
+export enum OverlayPosEnum {
+  tr = 'tr',
+  br = 'br',
+}
