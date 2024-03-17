@@ -51,7 +51,7 @@ $gen_anim_trans: 1s;
   }
 }
 
-@mixin flex($justify, $align, $dir: row) {
+@mixin flex($justify: flex-start, $align: flex-start, $dir: row) {
   display: flex;
   justify-content: $justify;
   align-items: $align;

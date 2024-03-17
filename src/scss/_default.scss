@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
-  color: $clr_txt;
 }
 
 :root {
@@ -17,6 +16,7 @@
 
 body {
   background-color: $bg_main;
+  color: $clr_txt;
 }
 
 h1,
@@ -34,12 +34,14 @@ button {
   border: none;
   outline: none;
   transition: all ease $trans_short;
+  color: $clr_txt;
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
   transition: all ease $trans_short;
+  color: $clr_txt;
 }
 
 ul {
@@ -128,4 +130,20 @@ img {
   @include media(min, $xlrg) {
     width: 300px;
   }
+}
+
+.bottom_line {
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 0.5px;
+    @include position(absolute, left, bottom, 0, 0);
+    background: $bg_line_grad;
+  }
+}
+
+.scroll_eff img {
+  transition: object-position linear 100ms;
 }

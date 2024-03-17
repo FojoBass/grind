@@ -8,6 +8,7 @@
 }
 
 #home_sect {
+  // * Hero
   .hero {
     .center_sect {
       padding-top: 150px;
@@ -190,4 +191,195 @@
       }
     }
   }
+  // * Hero End
+
+  // * Home About
+  .about {
+    --margin_block: 20px;
+
+    @include media(min, $mid) {
+      --margin_block: 30px;
+    }
+
+    @include media(min, $lrg) {
+      --margin_block: 23px;
+    }
+
+    @include media(min, $xlrg) {
+      --margin_block: 30px;
+    }
+
+    .center_sect {
+      @include flex(flex-start, flex-start, column);
+      gap: var(--margin_block);
+
+      @include media(min, $lrg) {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 50px;
+      }
+
+      @include media(min, $xlrg) {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 60px;
+      }
+
+      .img_wrapper {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: $brd_rad_img;
+        transition: all ease $gen_anim_trans;
+        transform: translateX(-30px);
+        opacity: 0;
+
+        @include media(min, $lrg) {
+          align-self: stretch;
+          flex-basis: 50%;
+        }
+      }
+
+      .right_side {
+        @include flex(flex-start, flex-start, column);
+        position: relative;
+
+        @include media(min, $lrg) {
+          flex-basis: 50%;
+        }
+
+        .int_wrapper {
+          transition: all ease $gen_anim_trans;
+          transform: translateX(30px);
+          opacity: 0;
+        }
+
+        .heading {
+          font-size: 3rem;
+
+          @include media(min, $lrg) {
+            font-size: 2.7rem;
+          }
+
+          @include media(min, $xlrg) {
+            font-size: 4rem;
+          }
+        }
+
+        .more_heading {
+          color: $clr_hdg;
+          margin-block: var(--margin_block);
+          font-size: 2rem;
+
+          @include media(min, $lrg) {
+            font-size: 1.7rem;
+          }
+
+          @include media(min, $lrg) {
+            font-size: 2.3rem;
+          }
+        }
+
+        .more_info {
+          font-size: 1.5rem;
+          line-height: 1.3;
+          margin-bottom: var(--margin_block);
+
+          @include media(min, $lrg) {
+            font-size: 1.4rem;
+          }
+
+          @include media(min, $lrg) {
+            font-size: 1.6rem;
+          }
+        }
+
+        .link_wrapper {
+          transition: all ease $gen_anim_trans;
+          transform: translateX(30px);
+          opacity: 0;
+
+          @include media(min, $lrg) {
+            @include position(absolute, left, bottom, 0, 0);
+          }
+
+          a {
+            @include flex(flex-start, center);
+            width: fit-content;
+
+            &:hover {
+              .icon {
+                margin-right: 20px;
+                background-color: $clr_acc;
+                border-color: $clr_acc;
+
+                svg {
+                  scale: 1.2;
+                }
+              }
+            }
+
+            .icon {
+              font-size: 5rem;
+              color: $clr_hdg !important;
+              border: 2px solid $clr_sub;
+              padding-inline: 0.8rem;
+              position: relative;
+              border-radius: 10px;
+              margin-right: 15px;
+              transition: all ease $trans_mid;
+
+              @include media(min, $mid) {
+                padding: 0.8rem 1.5rem;
+              }
+
+              @include media(min, $lrg) {
+                font-size: 4rem;
+              }
+
+              @include media(min, $lrg) {
+                font-size: 5rem;
+              }
+
+              svg {
+                position: relative;
+                top: 5px;
+                transition: inherit;
+              }
+            }
+
+            .title {
+              font-size: 2rem;
+              width: 150px;
+              margin-bottom: 1rem;
+
+              @include media(min, $lrg) {
+                font-size: 1.7rem;
+              }
+
+              @include media(min, $lrg) {
+                font-size: 2rem;
+                width: 170px;
+              }
+            }
+
+            .more {
+              text-transform: uppercase;
+              font-size: 1.1rem;
+              font-weight: 700;
+              letter-spacing: 0.1rem;
+
+              @include media(min, $lrg) {
+                font-size: 1rem;
+              }
+
+              @include media(min, $xlrg) {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // * Home About End
 }
