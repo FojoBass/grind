@@ -1,13 +1,20 @@
 @use 'config' as *;
 
-:root.animate {
-  .intersects {
-    transform: translate(0, 0) !important;
-    opacity: 1 !important;
-  }
-}
-
 #home_sect {
+  --margin_block: 20px;
+
+  @include media(min, $mid) {
+    --margin_block: 30px;
+  }
+
+  @include media(min, $lrg) {
+    --margin_block: 23px;
+  }
+
+  @include media(min, $xlrg) {
+    --margin_block: 30px;
+  }
+
   // * Hero
   .hero {
     .center_sect {
@@ -91,14 +98,14 @@
       .mid {
         position: relative;
         .video_wrapper {
-          width: 100%;
-          margin-bottom: $margin_block_gen;
+          // width: 100%;
+          // border-radius: $brd_rad_img;
+          // overflow: hidden;
+          // transition: all ease $gen_anim_trans;
+          // transform: translate(-30px, -30px);
+          // opacity: 0;
           aspect-ratio: 2/1;
-          border-radius: $brd_rad_img;
-          overflow: hidden;
-          transition: all ease $gen_anim_trans;
-          transform: translate(-30px, -30px);
-          opacity: 0;
+          margin-bottom: $margin_block_gen;
 
           @include media(min, $mid) {
             margin-bottom: 0;
@@ -111,17 +118,17 @@
           }
         }
 
-        .info_box {
-          display: none;
-          text-align: right;
-          transition: all ease $gen_anim_trans;
-          transform: translateX(30px);
-          opacity: 0;
+        // .info_box {
+        //   display: none;
+        //   text-align: right;
+        //   transition: all ease $gen_anim_trans;
+        //   transform: translateX(30px);
+        //   opacity: 0;
 
-          @include media(min, $mid) {
-            display: block;
-          }
-        }
+        //   @include media(min, $mid) {
+        //     display: block;
+        //   }
+        // }
       }
 
       .bottom {
@@ -195,20 +202,6 @@
 
   // * Home About
   .about {
-    --margin_block: 20px;
-
-    @include media(min, $mid) {
-      --margin_block: 30px;
-    }
-
-    @include media(min, $lrg) {
-      --margin_block: 23px;
-    }
-
-    @include media(min, $xlrg) {
-      --margin_block: 30px;
-    }
-
     .center_sect {
       @include flex(flex-start, flex-start, column);
       gap: var(--margin_block);
@@ -382,4 +375,535 @@
     }
   }
   // * Home About End
+
+  // *Home Services
+  .services {
+    .center_sect {
+      & .right_side {
+        .services_opts {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 15px;
+
+          @include media(min, $mid) {
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+          }
+
+          .services_opt {
+            h3 {
+              text-transform: capitalize;
+              font-size: 2rem;
+              margin-bottom: 20px;
+              position: relative;
+              width: fit-content;
+
+              @include media(min, $mid) {
+                font-size: 2.5rem;
+              }
+
+              &::after {
+                content: '';
+                width: 0.4rem;
+                height: 0.4rem;
+                background-color: $clr_acc;
+                @include position(absolute, right, bottom, -0.5rem, 0.5rem);
+                border-radius: 50%;
+              }
+            }
+
+            .info {
+              font-size: 1.6rem;
+              margin-bottom: 40px;
+              line-height: 1.4;
+
+              @include media(min, $lrg) {
+                font-size: 1.4rem;
+              }
+
+              @include media(min, $xlrg) {
+                font-size: 1.6rem;
+              }
+            }
+
+            .price_wrapper {
+              @include flex(flex-start, flex-start, column);
+              font-size: 1.2rem;
+              text-transform: uppercase;
+              font-weight: 600;
+              letter-spacing: 0.1rem;
+              margin-bottom: 20px;
+
+              .amount {
+                color: $clr_hdg;
+                font-size: 3rem;
+
+                @include media(min, $xlrg) {
+                  font-size: 4rem;
+                }
+              }
+            }
+
+            .cta_btn {
+              width: 100%;
+              padding-block: 15px;
+              text-transform: capitalize;
+              display: block;
+              font-size: 1.5rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+  // *Home Services End
+
+  // * Slider
+  .slider_wrapper {
+    overflow-x: hidden;
+    position: relative;
+
+    .slider {
+      background-color: darken($clr_acc, 10%);
+      color: $clr_hdg;
+      text-transform: capitalize;
+      @include flex();
+      width: fit-content;
+      align-items: center;
+      animation: slideAnim 5s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+
+      .slider_opt {
+        padding: 2rem 3.5rem;
+        font-size: 3.5rem;
+        width: fit-content;
+        white-space: nowrap;
+        font-weight: 600;
+        position: relative;
+
+        @include media(min, $mid) {
+          font-size: 4.3rem;
+          padding-inline: 6rem;
+        }
+
+        @include media(min, $xlrg) {
+          font-size: 4.8rem;
+          padding-block: 3rem;
+        }
+
+        &:after {
+          content: '';
+          width: 5px;
+          height: 5px;
+          border: 4px solid $clr_sub;
+          @include position(absolute, right, top, 0, 50%);
+          transform: translateY(-50%) rotate(45deg);
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  // * Slider end
+
+  // * Why Us
+  .why_us {
+    .center_sect {
+      .sect_info {
+        @include media(min, $lrg) {
+          flex-basis: 45%;
+        }
+      }
+
+      .right_side {
+        @include media(min, $lrg) {
+          flex-basis: 50%;
+        }
+
+        .whyus_opts {
+          @include flex(flex-start, flex-start, column);
+          gap: 15px;
+
+          @include media(min, $mid) {
+            gap: 25px;
+          }
+
+          .whyus_opt {
+            padding: 2.2rem;
+            border-radius: 2rem;
+
+            h3 {
+              font-size: 2.3rem;
+              margin-bottom: 20px;
+              position: relative;
+              width: fit-content;
+
+              @include media(min, $mid) {
+                font-size: 2.8rem;
+              }
+
+              @include media(min, $xlrg) {
+                font-size: 3rem;
+              }
+
+              .spc,
+              .punc {
+                color: $clr_acc;
+              }
+            }
+
+            .info {
+              font-size: 1.6rem;
+              line-height: 1.4;
+
+              @include media(min, $lrg) {
+                font-size: 1.4rem;
+              }
+
+              @include media(min, $xlrg) {
+                font-size: 1.6rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // * End Why Us
+
+  // * Accomplished
+  .accomplished {
+    .accom_opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      grid-auto-rows: 170px;
+
+      @include media(min, $mid) {
+        gap: 25px;
+      }
+
+      @include media(min, $lrg) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 200px;
+      }
+
+      @include media(min, $xlrg) {
+        grid-auto-rows: 250px;
+      }
+
+      .accom_opt {
+        @include flex(center, center, column);
+        gap: 10px;
+        font-size: 1.5rem;
+        opacity: 0;
+        transform: scale(0.7);
+
+        @include media(min, $xlrg) {
+          font-size: 1.7rem;
+        }
+
+        &:last-of-type {
+          background-color: darken($clr_acc, 10);
+          color: $clr_hdg;
+        }
+
+        .info {
+          color: $clr_hdg;
+          font-size: 6rem;
+          font-weight: 700;
+
+          @include media(min, $xlrg) {
+            font-size: 8rem;
+          }
+        }
+      }
+    }
+  }
+  // * End Accomplished
+
+  // * Portfolio
+  .portfolio {
+    .center_sect {
+      .sect_info {
+        @include media(min, $lrg) {
+          flex-basis: 45%;
+        }
+      }
+
+      .right_side {
+        width: 100%;
+
+        @include media(min, $lrg) {
+          flex-basis: 50%;
+        }
+
+        .portfolio_opts {
+          @include flex(flex-start, flex-start, column);
+          gap: 20px;
+          width: 100%;
+
+          @include media(min, $mid) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 30px;
+          }
+
+          @include media(min, $lrg) {
+            grid-template-columns: 1fr;
+            column-gap: 0;
+          }
+
+          .portfolio_opt {
+            width: 100%;
+            padding: 13px;
+            cursor: pointer;
+            border-radius: 2rem;
+            opacity: 0;
+            transform: translateX(50px);
+            scale: 1;
+
+            &:hover {
+              img,
+              .icon {
+                scale: 1.2;
+              }
+            }
+
+            .img_wrapper {
+              border-radius: inherit;
+              margin-bottom: 20px;
+              // height: 100%;
+
+              img {
+                border-radius: inherit;
+                transition: scale ease $trans_mid;
+                // display: none;
+              }
+            }
+
+            .bottom {
+              @include flex(space-between, center);
+              // padding-bottom: 10px;
+
+              .left_side {
+                .categ {
+                  margin-bottom: 2px;
+                  font-size: 1.3rem;
+                  text-transform: uppercase;
+                  letter-spacing: 0.1rem;
+                  color: $clr_txt;
+                }
+
+                .title {
+                  font-size: 2rem;
+                }
+              }
+
+              .icon {
+                display: inline-block;
+                font-size: 4.5rem;
+                color: $clr_hdg;
+                transition: scale ease $trans_mid;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // * End Portfolio
+
+  // * Client Says
+  .client_says {
+    .center_sect:first-child {
+      margin-bottom: 3rem;
+      padding-block-end: 0;
+      @include flex(center, flex-start);
+
+      @include media(min, $xlrg) {
+        margin-bottom: 4.5rem;
+      }
+    }
+
+    .center_sect:last-child {
+      padding-block-start: 0;
+
+      .testimonials {
+        @include flex(flex-start, flex-start, column);
+        gap: 15px;
+
+        @include media(min, $mid) {
+          gap: 25px;
+        }
+
+        .testimonial {
+          .info {
+            font-size: 1.6rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+
+            @include media(min, $lrg) {
+              font-size: 1.4rem;
+            }
+
+            @include media(min, $xlrg) {
+              font-size: 1.6rem;
+            }
+          }
+
+          h4 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+
+            // @include media(min, $mid) {
+            //   font-size: 2.5rem;
+            // }
+
+            // @include media(min, $xlrg) {
+            //   font-size: 2.7rem;
+            // }
+          }
+
+          footer {
+            @include flex(space-between, center);
+
+            .position {
+              font-size: 1.2rem;
+              text-transform: uppercase;
+              font-weight: bold;
+              letter-spacing: 0.1rem;
+            }
+
+            .stars_wrapper {
+              @include flex(flex-end, center);
+              gap: 2px;
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  // * End Client Says
+
+  .home_form {
+    .center_sect {
+      padding-block: 20px;
+      .form_wrapper {
+        background-color: $clr_acc;
+        padding: 20px;
+
+        @include media(min, $mid) {
+          padding: 40px;
+        }
+
+        @include media(min, $xlrg) {
+          padding: 60px;
+        }
+
+        .title {
+          font-size: 3.2rem;
+          margin-bottom: 15px;
+
+          @include media(min, $mid) {
+            margin-top: 60px;
+            font-size: 4.5rem;
+            width: 70%;
+            margin-bottom: 50px;
+          }
+
+          @include media(min, $lrg) {
+            font-size: 6rem;
+            margin-top: 30px;
+          }
+        }
+
+        form {
+          @include flex(flex-start, flex-start, column);
+          width: 100%;
+          gap: 15px;
+
+          @include media(min, $mid) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+          }
+
+          input {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid lighten($brd_clr, 50);
+            border-radius: 20px;
+            background-color: $brd_clr;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+
+            @include media(min, $mid) {
+              padding-inline: 25px;
+              font-size: 2.7rem;
+              flex-basis: 80%;
+            }
+
+            @include media(min, $lrg) {
+              font-size: 4rem;
+            }
+
+            &::placeholder {
+              color: #fff;
+            }
+          }
+
+          .submit_btn {
+            width: 100%;
+            text-align: center;
+            color: $clr_acc;
+            background-color: $clr_sub;
+            border-radius: 20px;
+            padding-block: 15px;
+            font-size: 4rem;
+
+            @include media(min, $mid) {
+              flex-basis: 20%;
+              padding-block: 12px;
+            }
+
+            @include media(min, $lrg) {
+              padding-block: 21px;
+            }
+
+            &:hover {
+              background-color: color-mix(in srgb, $clr_sub 80%, $clr_acc);
+            }
+          }
+        }
+      }
+
+      .info_box {
+        font-size: 2rem;
+        color: $clr_hdg;
+        width: 300px;
+
+        @include media(min, $xlrg) {
+          font-size: 2.5rem;
+          width: 400px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideAnim {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translate(-50%);
+  }
 }

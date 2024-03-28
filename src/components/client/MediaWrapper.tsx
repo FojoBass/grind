@@ -1,5 +1,4 @@
 'use client';
-import { useGlobalContext } from '@/context';
 import useClip from '@/hooks/useClip';
 import { OverlayPosEnum } from '@/types';
 import React, { useEffect, useRef } from 'react';
@@ -8,14 +7,12 @@ interface MediaWrapperint {
   children: React.ReactNode;
   elClass: string;
   pos: OverlayPosEnum;
-  intersectionRefs: React.MutableRefObject<HTMLElement[]>;
 }
 
 const MediaWrapper: React.FC<MediaWrapperint> = ({
   children,
   elClass,
   pos,
-  intersectionRefs,
 }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -37,7 +34,7 @@ const MediaWrapper: React.FC<MediaWrapperint> = ({
   }, []);
 
   return (
-    <div className={elClass} ref={wrapperRef}>
+    <div className={elClass + ' ' + 'clip_container'} ref={wrapperRef}>
       {children}
     </div>
   );

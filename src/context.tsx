@@ -2,16 +2,26 @@
 
 import React, {
   Dispatch,
+  MutableRefObject,
   SetStateAction,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import { createContext } from 'react';
+import { Position } from './types';
 
 interface ContextInt {
   isSideOpen?: boolean;
   setIsSideOpen?: Dispatch<SetStateAction<boolean>>;
+  pos?: Position;
+  setPos?: Dispatch<SetStateAction<Position>>;
+  highlightElRefs?: MutableRefObject<HTMLElement[]>;
+  setHPos?: Dispatch<SetStateAction<Position[]>>;
+  hPos?: Position[];
+  imgRefs?: MutableRefObject<HTMLElement[]>;
+  img2Refs?: MutableRefObject<HTMLElement[]>;
 }
 
 const AppContext = createContext<ContextInt>({});
@@ -20,10 +30,28 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [isSideOpen, setIsSideOpen] = useState(false);
+  const [pos, setPos] = useState<Position>({ x: 0, y: 0 });
+  const highlightElRefs = useRef<HTMLElement[]>([]);
+  const [hPos, setHPos] = useState<Position[]>([]);
+  const imgRefs = useRef<HTMLElement[]>([]);
+  const img2Refs = useRef<HTMLElement[]>([]);
+
+  useEffect(() => {
+    const highlightEls = highlightElRefs.current;
+    if (highlightEls.length) {
+    }
+  }, []);
 
   const sharedProps: ContextInt = {
     isSideOpen,
     setIsSideOpen,
+    pos,
+    setPos,
+    highlightElRefs,
+    hPos,
+    setHPos,
+    imgRefs,
+    img2Refs,
   };
 
   return (

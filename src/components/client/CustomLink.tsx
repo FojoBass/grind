@@ -8,10 +8,12 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 interface LinkInt {
   elClass: string;
   link: string;
-  title: string;
+  title?: string;
   delay: number;
   isNavLink?: boolean;
+  isSocialLink?: boolean;
   dispatch?: Dispatch<SetStateAction<boolean>>;
+  children?: React.ReactNode;
 }
 
 const CustomLink: React.FC<LinkInt> = ({
@@ -19,8 +21,10 @@ const CustomLink: React.FC<LinkInt> = ({
   delay,
   link,
   title,
-  isNavLink,
+  isNavLink = false,
   dispatch,
+  children,
+  isSocialLink = false,
 }) => {
   const [isLinkActive, setIsLinkActive] = useState(false);
   const pathname = usePathname();
@@ -52,7 +56,7 @@ const CustomLink: React.FC<LinkInt> = ({
 
       onClick={handleRouteChange}
     >
-      {title}
+      {children ? children : title}
     </Link>
   );
 };

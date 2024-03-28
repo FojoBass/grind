@@ -38,13 +38,9 @@ const HeroSect = () => {
           </div>
         </header>
 
-        <MediaWrapper
-          elClass='mid'
-          pos={OverlayPosEnum.tr}
-          intersectionRefs={intersectionRefs}
-        >
+        <MediaWrapper elClass='mid' pos={OverlayPosEnum.tr}>
           <div
-            className='video_wrapper'
+            className='video_wrapper wrapper'
             ref={(el) => el && intersectionRefs.current.push(el)}
           >
             <video src='/videos/vid.mp4' loop muted autoPlay></video>
@@ -84,7 +80,7 @@ const HeroSect = () => {
                   key={service.title}
                   delay={0}
                   elClass='service_opt'
-                  link={service.url}
+                  link={service.link}
                   title={service.title}
                 />
               </div>

@@ -4,6 +4,7 @@ import '../scss/main.scss';
 import Navbar from '@/components/Navbar';
 import MouseLight from '@/components/client/MouseLight';
 import { AppProvider } from '@/context';
+import Footer from '@/components/client/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <MouseLight />
-          <footer>This is footer</footer>
+          <Footer />
         </AppProvider>
       </body>
     </html>

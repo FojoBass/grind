@@ -3,6 +3,7 @@
 $bg_main: #07090d;
 $bg_main_op: #07090dce;
 $bg_nav: #07090d50;
+$bg_sub: #c5c7ce;
 $bg_line_grad: linear-gradient(to left, transparent, #f5f7fa27, transparent);
 $bg_sub: #1a1d24;
 $clr_acc: darken(#569dff, 10%);
@@ -21,6 +22,7 @@ $pad_inline_gen: 10px;
 $margin_block_gen: 20px;
 $brd_rad_img: 2rem;
 $gen_anim_trans: 1s;
+$brd_clr: #f5f7fa27;
 
 @mixin position($type, $x, $y, $x_val, $y_val) {
   position: $type;

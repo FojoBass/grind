@@ -1,37 +1,37 @@
 'use client';
 import { homeImg4 } from '@/assets';
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { GoArrowUpRight } from 'react-icons/go';
 import ImgScrollEff from './ImgScrollEff';
 import { toggleAnimate } from '@/helpers';
 import { useRouter } from 'next/navigation';
 import useIntersection from '@/hooks/useIntersection';
+import CustomLink from './CustomLink';
+import { useGlobalContext } from '@/context';
+import ShortUniqueId from 'short-unique-id';
 
 // todo Add loading state for images
 
 const HomeAbout = () => {
-  const imgRef = useRef<HTMLImageElement | null>(null);
-  const router = useRouter();
   const intersectionRefs = useIntersection();
-
-  const handleRouteChange: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
-    e.preventDefault();
-    const el = e.currentTarget as HTMLElement;
-
-    toggleAnimate(false);
-
-    setTimeout(() => {
-      router.push(el.getAttribute('href') ?? '');
-    }, 1500);
-  };
+  const { imgRefs } = useGlobalContext();
 
   return (
     <section className='about bottom_line'>
       <div className='center_sect'>
         <ImgScrollEff intersectionRefs={intersectionRefs}>
-          <Image src={homeImg4} alt='Team mates' ref={imgRef} />
+          <Image
+            src={homeImg4}
+            alt='Team mates'
+            ref={(el) =>
+              el &&
+              imgRefs &&
+              !imgRefs.current.find((rEl) => rEl === el) &&
+              imgRefs.current.push(el)
+            }
+          />
         </ImgScrollEff>
 
         <div className='right_side'>
@@ -59,7 +59,7 @@ const HomeAbout = () => {
             className='link_wrapper'
             ref={(el) => el && intersectionRefs.current.push(el)}
           >
-            <Link href='/about' onClick={handleRouteChange}>
+            <CustomLink delay={0} elClass='' link='/about'>
               <span className='icon'>
                 <GoArrowUpRight />
               </span>
@@ -67,7 +67,7 @@ const HomeAbout = () => {
                 <h4 className='title'>We are a Passionate Team</h4>
                 <p className='more'>learn more about us</p>
               </div>
-            </Link>
+            </CustomLink>
           </div>
         </div>
       </div>

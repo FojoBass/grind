@@ -1,4 +1,6 @@
 @use 'config' as *;
+$bg_highlight: #f5f7fa7e;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,14 @@
 :root {
   font-size: 10px;
 
+  &.animate {
+    .intersects {
+      transform: translate(0, 0) !important;
+      opacity: 1 !important;
+      scale: 1 !important;
+    }
+  }
+
   @include media(max, $lrg) {
     font-size: 9px;
   }
@@ -17,6 +27,8 @@
 body {
   background-color: $bg_main;
   color: $clr_txt;
+  overflow-x: hidden;
+  // height: 1500vh;
 }
 
 h1,
@@ -54,6 +66,12 @@ img {
   object-fit: cover;
 }
 
+input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 .img_wrapper:not(.logo_text .img_wrapper) {
   overflow: hidden;
 }
@@ -61,6 +79,17 @@ img {
 .center_sect {
   margin-inline: auto;
   padding: 8rem $pad_inline_gen;
+
+  &.sect {
+    @include flex(flex-start, flex-start, column);
+    gap: 2.5rem;
+
+    @include media(min, $lrg) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3.5rem;
+    }
+  }
 
   @include media(max, $mid) {
     max-width: $mid;
@@ -120,6 +149,30 @@ img {
   );
 }
 
+.clip_container {
+  position: relative;
+  .wrapper {
+    width: 100%;
+    border-radius: $brd_rad_img;
+    overflow: hidden;
+    transition: all ease $gen_anim_trans;
+    transform: translate(-30px, -30px);
+    opacity: 0;
+  }
+
+  .info_box {
+    display: none;
+    text-align: right;
+    transition: all ease $gen_anim_trans;
+    transform: translateX(30px);
+    opacity: 0;
+
+    @include media(min, $mid) {
+      display: block;
+    }
+  }
+}
+
 .text_over_top {
   @include position(absolute, right, top, 0, 0);
   width: 250px;
@@ -145,5 +198,165 @@ img {
 }
 
 .scroll_eff img {
-  transition: object-position linear 100ms;
+  transform-origin: 50% 50%;
+  scale: 1.1;
+  display: block;
+  transition: 0.3s transform;
+  position: relative;
+}
+
+.scroll_eff2 {
+  opacity: 0;
+  transition: all ease $gen_anim_trans;
+  @include media(min, $xlrg) {
+    aspect-ratio: 2/1;
+    width: 100%;
+  }
+}
+
+.box_highlight {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  &::after {
+    background: radial-gradient(
+      800px circle at var(--x) var(--y),
+      $bg_light,
+      transparent 40%
+    );
+  }
+
+  &::before {
+    background: radial-gradient(
+      80rem circle at var(--x) var(--y),
+      $bg_highlight,
+      transparent 40%
+    );
+    mask: linear-gradient(#000, #000) content-box content-box,
+      linear-gradient(#000, #000);
+    padding: 1px;
+    mask-composite: exclude;
+  }
+}
+
+.sect_info {
+  * {
+    margin-bottom: var(--margin_block);
+  }
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: ease $gen_anim_trans;
+  color: $clr_hdg;
+
+  @include media(min, $lrg) {
+    position: sticky;
+    top: 150px;
+    margin-top: -10px;
+  }
+
+  .heading {
+    font-size: 4rem;
+
+    @include media(min, $mid) {
+      font-size: 4.5rem;
+    }
+
+    @include media(min, $xlrg) {
+      font-size: 5rem;
+    }
+  }
+
+  p {
+    font-size: 1.9rem;
+    width: 90%;
+    line-height: 1.4;
+
+    @include media(min, $mid) {
+      font-size: 2rem;
+    }
+
+    @include media(min, $lrg) {
+      width: 100%;
+    }
+
+    @include media(min, $xlrg) {
+      font-size: 2.2rem;
+    }
+  }
+
+  a {
+    * {
+      margin-bottom: 0;
+    }
+
+    @include flex();
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    width: fit-content;
+    margin-left: auto;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    position: relative;
+    align-items: center;
+    color: $clr_hdg;
+
+    @include media(min, $mid) {
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      .title::before {
+        width: 0;
+      }
+
+      .icon {
+        scale: 1.2;
+      }
+    }
+
+    .title {
+      position: relative;
+      display: inline-block;
+      padding-block-end: 5px;
+
+      &:before {
+        content: '';
+        @include position(absolute, left, bottom, 0, 0);
+        width: 100%;
+        height: 2px;
+        background-color: $clr_sub;
+        transition: ease $trans_mid;
+      }
+    }
+
+    .icon {
+      font-size: 3rem;
+      position: relative;
+      top: 4px;
+      transition: ease $trans_mid;
+
+      @include media(min, $mid) {
+        font-size: 3.2rem;
+      }
+    }
+  }
+}
+
+.sect_opt {
+  background-color: $bg_sub;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: ease $gen_anim_trans;
+  opacity: 0;
+  scale: 0.8;
 }

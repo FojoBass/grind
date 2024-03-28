@@ -1,4 +1,6 @@
+import { useGlobalContext } from '@/context';
 import React, { useEffect, useRef } from 'react';
+import ShortUniqueId from 'short-unique-id';
 
 const ImgScrollEff = ({
   children,
@@ -10,52 +12,59 @@ const ImgScrollEff = ({
   if (!React.isValidElement(children)) {
     throw new Error('Yo, wrong child bruff');
   }
-
-  const initialY = useRef(0);
-  const handleEventRef = useRef<EventListener | null>(null);
+  const handleEventRefs = useRef<{ callBack: EventListener; id: string }[]>([]);
+  const { imgRefs } = useGlobalContext();
 
   const callBack: IntersectionObserverCallback = (entries) => {
     entries.forEach((entry) => {
-      if (!handleEventRef.current)
-        handleEventRef.current = () =>
-          eventCallBack(entry.target as HTMLElement);
+      const targetEl = entry.target as HTMLElement;
+
+      if (!targetEl.dataset.id) {
+        targetEl.dataset.id = new ShortUniqueId({
+          length: 10,
+        }).rnd();
+      }
+
+      if (
+        !handleEventRefs.current.find((opt) => opt.id === targetEl.dataset.id)
+      )
+        handleEventRefs.current.push({
+          id: targetEl.dataset.id,
+          callBack: () => eventCallBack(targetEl),
+        });
+
       if (entry.isIntersecting) {
-        addEventListener('scroll', handleEventRef.current);
+        targetEl.dataset.initialY = String(scrollY);
+        const { callBack } = handleEventRefs.current.find(
+          (opt) => opt.id === targetEl.dataset.id
+        )!;
+        addEventListener('scroll', callBack);
       } else {
-        if (handleEventRef.current)
-          removeEventListener('scroll', handleEventRef.current);
+        const { callBack } = handleEventRefs.current.find(
+          (opt) => opt.id === targetEl.dataset.id
+        )!;
+        removeEventListener('scroll', callBack);
       }
     });
   };
 
   const eventCallBack = (el: HTMLElement) => {
-    const diff = (scrollY - initialY.current) / 10;
-    const percent = 50 + (diff / el.getBoundingClientRect().height) * 100;
+    const initialY = Number(el.dataset.initialY);
+    const offset = scrollY >= initialY ? -20 : 20;
+    const diff = (scrollY - initialY) / 30 + offset;
 
-    el.style.objectPosition = `50% ${percent}%`;
-  };
-
-  const calibrate = (el: HTMLElement) => {
-    initialY.current =
-      el.getBoundingClientRect().top > innerHeight
-        ? el.getBoundingClientRect().bottom -
-          el.getBoundingClientRect().height -
-          innerHeight
-        : el.getBoundingClientRect().bottom - el.getBoundingClientRect().height;
+    el.style.transform = `translateY(${diff}px)`;
   };
 
   useEffect(() => {
-    const childEl = (children as any).ref.current as HTMLElement;
+    if (imgRefs && imgRefs.current.length) {
+      const childEls = imgRefs.current;
+      const observer = new IntersectionObserver(callBack);
 
-    calibrate(childEl);
-
-    addEventListener('resize', () => calibrate(childEl));
-
-    const observer = new IntersectionObserver(callBack);
-
-    observer.observe(childEl);
-
-    return () => removeEventListener('resize', () => calibrate(childEl));
+      childEls.forEach((el) => {
+        observer.observe(el);
+      });
+    }
   }, []);
 
   return (
