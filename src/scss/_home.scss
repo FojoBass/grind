@@ -808,6 +808,9 @@
         .title {
           font-size: 3.2rem;
           margin-bottom: 15px;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: ease $gen_anim_trans;
 
           @include media(min, $mid) {
             margin-top: 60px;
@@ -843,6 +846,9 @@
             color: #fff;
             font-size: 1.8rem;
             font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: ease $gen_anim_trans;
 
             @include media(min, $mid) {
               padding-inline: 25px;
@@ -867,6 +873,9 @@
             border-radius: 20px;
             padding-block: 15px;
             font-size: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: ease $gen_anim_trans;
 
             @include media(min, $mid) {
               flex-basis: 20%;

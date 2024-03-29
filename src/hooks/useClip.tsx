@@ -85,10 +85,6 @@ const useClip: UseClipInt = (bgEl, overEl, pos) => {
 
   constructSvg();
 
-  addEventListener('resize', () => {
-    constructSvg();
-  });
-
   return clipId;
 };
 

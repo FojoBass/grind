@@ -101,7 +101,12 @@ const HomeClientSays = () => {
               className='form_wrapper wrapper'
               ref={(el) => el && intersectionRefs.current.push(el)}
             >
-              <h2 className='title'>Ready to set your Brand ablaze?</h2>
+              <h2
+                className='title'
+                ref={(el) => el && intersectionRefs.current.push(el)}
+              >
+                Ready to set your Brand ablaze?
+              </h2>
 
               <form onSubmit={(e) => e.preventDefault()}>
                 <input
@@ -109,8 +114,12 @@ const HomeClientSays = () => {
                   name=''
                   id=''
                   placeholder='email@example.com'
+                  ref={(el) => el && intersectionRefs.current.push(el)}
                 />
-                <button className='submit_btn'>
+                <button
+                  className='submit_btn'
+                  ref={(el) => el && intersectionRefs.current.push(el)}
+                >
                   <span className='icon'>
                     <FaArrowRight />
                   </span>
