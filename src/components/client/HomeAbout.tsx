@@ -1,16 +1,12 @@
 'use client';
 import { homeImg4 } from '@/assets';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 import ImgScrollEff from './ImgScrollEff';
-import { toggleAnimate } from '@/helpers';
-import { useRouter } from 'next/navigation';
 import useIntersection from '@/hooks/useIntersection';
 import CustomLink from './CustomLink';
 import { useGlobalContext } from '@/context';
-import ShortUniqueId from 'short-unique-id';
 
 // todo Add loading state for images
 

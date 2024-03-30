@@ -8,7 +8,7 @@ import useIntersection from '@/hooks/useIntersection';
 const Footer = () => {
   const intersectionRefs = useIntersection();
   return (
-    <section
+    <footer
       className='footer'
       ref={(el) => el && intersectionRefs.current.push(el)}
     >
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='bottom'>Copyright © 2024. All Rights Reserved.</div>
-    </section>
+    </footer>
   );
 };
 

@@ -11,6 +11,7 @@ import portImg6 from '../public/images/portfolio/portfolio06.jpg';
 import portImg7 from '../public/images/portfolio/portfolio07.jpg';
 import portImg8 from '../public/images/portfolio/portfolio08.jpg';
 import portImg9 from '../public/images/portfolio/portfolio09.jpg';
+import aboutImg1 from '../public/images/about/about_img1.jpg';
 
 export {
   homeImg1,
@@ -26,4 +27,5 @@ export {
   portImg7,
   portImg8,
   portImg9,
+  aboutImg1,
 };

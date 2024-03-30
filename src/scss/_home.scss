@@ -1,20 +1,6 @@
 @use 'config' as *;
 
 #home_sect {
-  --margin_block: 20px;
-
-  @include media(min, $mid) {
-    --margin_block: 30px;
-  }
-
-  @include media(min, $lrg) {
-    --margin_block: 23px;
-  }
-
-  @include media(min, $xlrg) {
-    --margin_block: 30px;
-  }
-
   // * Hero
   .hero {
     .center_sect {

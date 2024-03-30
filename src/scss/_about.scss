@@ -1,0 +1,192 @@
+@use 'config' as *;
+
+#about_sect {
+  .about {
+    .center_sect {
+      .top {
+        margin-bottom: calc(var(--margin_block) * 2);
+
+        .img_wrapper {
+          width: 100%;
+          aspect-ratio: 2/1;
+          border-radius: $brd_rad_img;
+          transition: all ease $gen_anim_trans;
+          transform: translateX(-30px);
+          opacity: 0;
+
+          img {
+            border-radius: inherit;
+          }
+        }
+      }
+
+      .bottom {
+        @include flex(flex-start, flex-start, column);
+        gap: calc(var(--margin_block) * 2);
+
+        @include media(min, $lrg) {
+          flex-direction: row;
+          align-items: stretch;
+          gap: 50px;
+        }
+
+        .heading {
+          font-size: 3rem;
+
+          @include media(min, $lrg) {
+            font-size: 2.7rem;
+          }
+
+          @include media(min, $xlrg) {
+            font-size: 4rem;
+          }
+        }
+
+        .left {
+          width: 100%;
+          position: relative;
+
+          @include media(min, $lrg) {
+            flex-basis: 50%;
+          }
+
+          h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--margin_block);
+            opacity: 0;
+            transition: all ease $gen_anim_trans;
+            transform: translateY(20px);
+
+            @include media(min, $mid) {
+              font-size: 5rem;
+            }
+
+            @include media(min, $lrg) {
+              font-size: 4rem;
+            }
+
+            @include media(min, $xlrg) {
+              font-size: 5rem;
+            }
+          }
+
+          .link_wrapper {
+            transform: translateX(-30px);
+            width: fit-content;
+            margin-left: auto;
+
+            @include media(min, $lrg) {
+              @include position(absolute, right, bottom, 0, 0);
+            }
+
+            a {
+              @include flex(flex-start, center);
+              width: fit-content;
+              text-align: right;
+
+              &:hover {
+                .icon {
+                  margin-left: 20px;
+                  background-color: $clr_acc;
+                  border-color: $clr_acc;
+
+                  svg {
+                    scale: 1.2;
+                  }
+                }
+              }
+
+              .icon {
+                font-size: 5rem;
+                color: $clr_hdg !important;
+                border: 2px solid $clr_sub;
+                padding-inline: 0.8rem;
+                position: relative;
+                border-radius: 10px;
+                margin-left: 15px;
+                transition: all ease $trans_mid;
+
+                @include media(min, $mid) {
+                  padding: 0.8rem 1.5rem;
+                }
+
+                @include media(min, $lrg) {
+                  font-size: 4rem;
+                }
+
+                @include media(min, $lrg) {
+                  font-size: 5rem;
+                }
+
+                svg {
+                  position: relative;
+                  top: 5px;
+                  transition: inherit;
+                }
+              }
+
+              .title {
+                font-size: 2rem;
+                width: 150px;
+                margin-bottom: 1rem;
+
+                @include media(min, $lrg) {
+                  font-size: 1.7rem;
+                }
+
+                @include media(min, $lrg) {
+                  font-size: 2rem;
+                  width: 170px;
+                }
+              }
+
+              .more {
+                text-transform: uppercase;
+                font-size: 1.1rem;
+                font-weight: 700;
+                letter-spacing: 0.1rem;
+
+                @include media(min, $lrg) {
+                  font-size: 1rem;
+                }
+
+                @include media(min, $xlrg) {
+                  font-size: 1.2rem;
+                }
+              }
+            }
+          }
+        }
+
+        .right {
+          opacity: 0;
+          transition: all ease $gen_anim_trans;
+          transform: translateX(30px);
+
+          @include media(min, $lrg) {
+            flex-basis: 50%;
+          }
+
+          p {
+            margin-bottom: $margin_block_gen;
+            line-height: 1.5;
+            font-size: 1.5rem;
+
+            @include media(min, $xlrg) {
+              margin-bottom: calc(1.5 * $margin_block_gen);
+            }
+
+            &:first-child {
+              color: $clr_hdg;
+              font-size: 2rem;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

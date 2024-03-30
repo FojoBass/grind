@@ -18,7 +18,7 @@ $sml: 500px;
 $trans_short: 0.3s;
 $trans_mid: 0.5s;
 $trans_long: 1s;
-$pad_inline_gen: 10px;
+$pad_inline_gen: 15px;
 $margin_block_gen: 20px;
 $brd_rad_img: 2rem;
 $gen_anim_trans: 1s;
@@ -58,4 +58,20 @@ $brd_clr: #f5f7fa27;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $dir;
+}
+
+:root {
+  --margin_block: 20px;
+
+  @include media(min, $mid) {
+    --margin_block: 30px;
+  }
+
+  @include media(min, $lrg) {
+    --margin_block: 23px;
+  }
+
+  @include media(min, $xlrg) {
+    --margin_block: 30px;
+  }
 }

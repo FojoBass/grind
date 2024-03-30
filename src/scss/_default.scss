@@ -407,3 +407,119 @@ input {
   opacity: 0;
   scale: 0.8;
 }
+
+.page_heading {
+  text-align: center;
+  padding-block-start: 60px;
+
+  .center_sect {
+    @include media(min, $mid) {
+      padding-block: 100px;
+    }
+
+    @include media(min, $xlrg) {
+      padding-block: 130px;
+    }
+
+    .int_heading {
+      transform: translateY(20px);
+    }
+
+    .int_info {
+      transform: translateY(20px);
+      transition-delay: 200ms;
+    }
+
+    h1 {
+      text-transform: capitalize;
+      font-size: 5rem;
+      margin-bottom: 20px;
+
+      @include media(min, $mid) {
+        font-size: 6rem;
+      }
+
+      @include media(min, $lrg) {
+        font-size: 6.5rem;
+        margin-bottom: 40px;
+      }
+
+      @include media(min, $xlrg) {
+        font-size: 7.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.9rem;
+      color: $clr_hdg;
+      margin-inline: auto;
+
+      @include media(min, $mid) {
+        max-width: 500px;
+        font-size: 2rem;
+      }
+
+      @include media(min, $lrg) {
+        max-width: 600px;
+      }
+    }
+  }
+}
+
+.int_wrapper {
+  opacity: 0;
+  transition: all ease $gen_anim_trans;
+}
+
+.sect_heading {
+  text-align: center;
+  padding: 10px 0 20px;
+
+  @include media(min, $mid) {
+    padding: 10px 0 30px;
+  }
+
+  @include media(min, $xlrg) {
+    padding: 10px 0 40px;
+  }
+
+  .int_heading {
+    transform: translateY(20px);
+  }
+
+  .int_info {
+    transform: translateY(20px);
+    transition-delay: 200ms;
+  }
+
+  h1 {
+    text-transform: capitalize;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+
+    @include media(min, $mid) {
+      font-size: 4.5rem;
+    }
+
+    @include media(min, $xlrg) {
+      font-size: 5.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.7rem;
+    color: $clr_hdg;
+    margin-inline: auto;
+    line-height: 1.5;
+
+    @include media(min, $mid) {
+      max-width: 500px;
+      font-size: 2rem;
+    }
+
+    @include media(min, $lrg) {
+      max-width: 800px;
+      font-size: 2.2rem;
+    }
+  }
+}
