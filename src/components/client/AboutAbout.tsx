@@ -4,10 +4,10 @@ import ImgScrollEff from './ImgScrollEff';
 import useIntersection from '@/hooks/useIntersection';
 import { useGlobalContext } from '@/context';
 import { aboutImg1 } from '@/assets';
-import Image from 'next/image';
 import IntWrapper from './IntWrapper';
 import CustomLink from './CustomLink';
 import { GoArrowUpRight } from 'react-icons/go';
+import LazyLoad from './LazyLoad';
 
 const AboutAbout = () => {
   const intersectionRefs = useIntersection();
@@ -18,16 +18,7 @@ const AboutAbout = () => {
       <div className='center_sect'>
         <div className='top'>
           <ImgScrollEff intersectionRefs={intersectionRefs}>
-            <Image
-              src={aboutImg1}
-              alt='Team mates'
-              ref={(el) =>
-                el &&
-                imgRefs &&
-                !imgRefs.current.find((rEl) => rEl === el) &&
-                imgRefs.current.push(el)
-              }
-            />
+            <LazyLoad alt='Team mates' isImgRefs={true} src={aboutImg1} />
           </ImgScrollEff>
         </div>
 

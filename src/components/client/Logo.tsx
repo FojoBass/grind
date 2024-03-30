@@ -10,7 +10,7 @@ const Logo = () => {
       <Link href='/'>
         gr
         <span className='img_wrapper'>
-          <Image src={logo} alt='gring logo' />
+          <Image src={logo} alt='grind logo' />
 
           <span className='ray'></span>
           <span className='ray'></span>

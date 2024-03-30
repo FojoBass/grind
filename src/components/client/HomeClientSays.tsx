@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import ImgScrollEff2 from './ImgScrollEff2';
-import Image from 'next/image';
 import { homeImg3 } from '@/assets';
 import useIntersection from '@/hooks/useIntersection';
 import HomeSectInfo from './HomeSectInfo';
@@ -11,6 +10,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 import MediaWrapper from './MediaWrapper';
 import { OverlayPosEnum } from '@/types';
 import { FaArrowRight } from 'react-icons/fa6';
+import LazyLoad from './LazyLoad';
 
 const HomeClientSays = () => {
   const intersectionRefs = useIntersection();
@@ -21,7 +21,7 @@ const HomeClientSays = () => {
       <section className='client_says top_backlight'>
         <div className='center_sect'>
           <ImgScrollEff2 intersectionRefs={intersectionRefs}>
-            <Image src={homeImg3} alt='image' />
+            <LazyLoad alt='image' src={homeImg3} />
           </ImgScrollEff2>
         </div>
         <div className='center_sect sect'>

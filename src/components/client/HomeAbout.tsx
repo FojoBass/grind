@@ -1,33 +1,22 @@
 'use client';
 import { homeImg4 } from '@/assets';
-import Image from 'next/image';
 import React from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 import ImgScrollEff from './ImgScrollEff';
 import useIntersection from '@/hooks/useIntersection';
 import CustomLink from './CustomLink';
-import { useGlobalContext } from '@/context';
+import LazyLoad from './LazyLoad';
 
 // todo Add loading state for images
 
 const HomeAbout = () => {
   const intersectionRefs = useIntersection();
-  const { imgRefs } = useGlobalContext();
 
   return (
     <section className='about bottom_line'>
       <div className='center_sect'>
         <ImgScrollEff intersectionRefs={intersectionRefs}>
-          <Image
-            src={homeImg4}
-            alt='Team mates'
-            ref={(el) =>
-              el &&
-              imgRefs &&
-              !imgRefs.current.find((rEl) => rEl === el) &&
-              imgRefs.current.push(el)
-            }
-          />
+          <LazyLoad alt='team mates' src={homeImg4} isImgRefs={true} />
         </ImgScrollEff>
 
         <div className='right_side'>

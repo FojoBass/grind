@@ -65,7 +65,7 @@ const ImgScrollEff = ({
         observer.observe(el);
       });
     }
-  }, []);
+  }, [imgRefs?.current.length]);
 
   return (
     <div

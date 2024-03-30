@@ -1,19 +1,18 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import HomeSectInfo from './HomeSectInfo';
 import useIntersection from '@/hooks/useIntersection';
 import { portOpts, whyUsOpts } from '@/data';
 import { useGlobalContext } from '@/context';
 import HomeAccomp from './HomeAccomp';
 import ImgScrollEff from './ImgScrollEff';
-import Image from 'next/image';
-import ShortUniqueId from 'short-unique-id';
 import { GoArrowUpRight } from 'react-icons/go';
 import CustomLink from './CustomLink';
+import LazyLoad from './LazyLoad';
 
 const HomePortfolio = () => {
   const intersectionRefs = useIntersection();
-  const { highlightElRefs, hPos, imgRefs } = useGlobalContext();
+  const { highlightElRefs, hPos } = useGlobalContext();
 
   return (
     <>
@@ -130,16 +129,7 @@ const HomePortfolio = () => {
                       data-id={uniqId}
                     >
                       <ImgScrollEff intersectionRefs={intersectionRefs}>
-                        <Image
-                          src={imgUrl}
-                          alt={title}
-                          ref={(el) =>
-                            el &&
-                            imgRefs &&
-                            !imgRefs.current.find((rEl) => rEl === el) &&
-                            imgRefs.current.push(el)
-                          }
-                        />
+                        <LazyLoad alt={title} src={imgUrl} isImgRefs={true} />
                       </ImgScrollEff>
 
                       <div className='bottom'>

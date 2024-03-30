@@ -523,3 +523,31 @@ input {
     }
   }
 }
+
+.spinner {
+  width: 100%;
+  background-color: $bg_sub;
+  @include flex(center, center);
+  font-size: 3rem;
+
+  &.overlay {
+    @include position(absolute, left, top, 0, 0);
+    height: 100%;
+    z-index: 1;
+  }
+
+  .icon {
+    svg {
+      animation: spinAnim 1.5s linear infinite;
+    }
+  }
+}
+
+@keyframes spinAnim {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}

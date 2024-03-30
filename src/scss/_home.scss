@@ -65,6 +65,10 @@
           transform: translateX(30px);
           opacity: 0;
 
+          .spinner.not_intersect {
+            aspect-ratio: 3/2;
+          }
+
           img {
             border-radius: $brd_rad_img;
           }
@@ -211,6 +215,10 @@
         transition: all ease $gen_anim_trans;
         transform: translateX(-30px);
         opacity: 0;
+
+        .spinner.not_intersect {
+          aspect-ratio: 1/1;
+        }
 
         @include media(min, $lrg) {
           align-self: stretch;
@@ -662,12 +670,14 @@
             .img_wrapper {
               border-radius: inherit;
               margin-bottom: 20px;
-              // height: 100%;
+
+              .spinner.not_intersect {
+                aspect-ratio: 1/1;
+              }
 
               img {
                 border-radius: inherit;
                 transition: scale ease $trans_mid;
-                // display: none;
               }
             }
 
@@ -710,6 +720,10 @@
       padding-block-end: 0;
       @include flex(center, flex-start);
 
+      .spinner.not_intersect {
+        aspect-ratio: 3/2;
+      }
+
       @include media(min, $xlrg) {
         margin-bottom: 4.5rem;
       }
@@ -744,14 +758,6 @@
           h4 {
             font-size: 2rem;
             margin-bottom: 5px;
-
-            // @include media(min, $mid) {
-            //   font-size: 2.5rem;
-            // }
-
-            // @include media(min, $xlrg) {
-            //   font-size: 2.7rem;
-            // }
           }
 
           footer {

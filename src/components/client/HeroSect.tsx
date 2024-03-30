@@ -1,12 +1,12 @@
 'use client';
-import Image from 'next/image';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import MediaWrapper from './MediaWrapper';
 import { homeImg1 } from '@/assets';
 import { OverlayPosEnum } from '@/types';
 import { servicesOpts } from '@/data';
 import CustomLink from './CustomLink';
 import useIntersection from '@/hooks/useIntersection';
+import LazyLoad from './LazyLoad';
 
 const HeroSect = () => {
   const intersectionRefs = useIntersection();
@@ -34,7 +34,7 @@ const HeroSect = () => {
             className='img_wrapper'
             ref={(el) => el && intersectionRefs.current.push(el)}
           >
-            <Image src={homeImg1} alt='image' />
+            <LazyLoad alt='image' src={homeImg1} />
           </div>
         </header>
 

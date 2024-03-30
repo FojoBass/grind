@@ -40,6 +40,7 @@ const Footer = () => {
                       transitionDelay: `${(index + 1) * 200 - index * 100}ms`,
                     }}
                     ref={(el) => el && intersectionRefs.current.push(el)}
+                    key={id}
                   >
                     <CustomLink
                       delay={0}

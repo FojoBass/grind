@@ -117,7 +117,7 @@ const ImgScrollEff2: React.FC<ImgScrollEffInt> = ({
         observer.observe(el);
       });
     }
-  }, []);
+  }, [img2Refs?.current.length]);
 
   return (
     <div
