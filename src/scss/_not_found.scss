@@ -1,0 +1,56 @@
+@use 'config' as *;
+
+.not_found {
+  height: 100vh;
+  @include flex(center, center, column);
+  gap: 10px;
+
+  h1 {
+    font-size: 10rem;
+
+    .img_wrapper {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 70px;
+
+      &:has(img.on.active) {
+        &::after {
+          content: '';
+          @include position(absolute, left, top, 50%, 2.5rem);
+          @include uniTranslate(X, -50%);
+          width: 1px;
+          height: 1px;
+          border-radius: 50%;
+          box-shadow: 0 0 5px 5px #ffd9007d, 0 0 5px 10px #ffd9007d,
+            0 0 5px 15px #ffd9007d;
+        }
+      }
+
+      img {
+        @include position(absolute, left, top, 0, 0);
+        scale: 1.2;
+        opacity: 0;
+        transition: all ease $trans_mid;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  a {
+    font-size: 1.5rem;
+    color: $clr_acc;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

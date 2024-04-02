@@ -20,6 +20,8 @@ import teamImg3 from '../public/images/team/team_img3.jpg';
 import teamImg4 from '../public/images/team/team_img4.jpg';
 import teamImg5 from '../public/images/team/team_img5.jpg';
 import teamImg6 from '../public/images/team/team_img6.jpg';
+import bulbOff from '../public/images/bulb.png';
+import bulbOn from '../public/images/logo.png';
 
 export {
   homeImg1,
@@ -44,4 +46,6 @@ export {
   teamImg4,
   teamImg5,
   teamImg6,
+  bulbOff,
+  bulbOn,
 };

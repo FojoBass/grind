@@ -32,6 +32,10 @@
             font-size: 6rem;
           }
 
+          @include media(max, 400px) {
+            font-size: 4rem;
+          }
+
           span {
             color: inherit;
 
@@ -88,12 +92,6 @@
       .mid {
         position: relative;
         .video_wrapper {
-          // width: 100%;
-          // border-radius: $brd_rad_img;
-          // overflow: hidden;
-          // transition: all ease $gen_anim_trans;
-          // transform: translate(-30px, -30px);
-          // opacity: 0;
           aspect-ratio: 2/1;
           margin-bottom: $margin_block_gen;
 
@@ -107,18 +105,6 @@
             object-fit: cover;
           }
         }
-
-        // .info_box {
-        //   display: none;
-        //   text-align: right;
-        //   transition: all ease $gen_anim_trans;
-        //   transform: translateX(30px);
-        //   opacity: 0;
-
-        //   @include media(min, $mid) {
-        //     display: block;
-        //   }
-        // }
       }
 
       .bottom {
@@ -683,7 +669,6 @@
 
             .bottom {
               @include flex(space-between, center);
-              // padding-bottom: 10px;
 
               .left_side {
                 .categ {

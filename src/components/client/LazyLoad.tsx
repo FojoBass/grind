@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { TbFidgetSpinner } from 'react-icons/tb';
 
 interface LazyLoadInt {
-  // children: React.ReactNode;
   isImgRefs?: boolean;
   isImg2Refs?: boolean;
   src: StaticImageData;

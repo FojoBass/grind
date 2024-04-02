@@ -15,6 +15,8 @@ import { Position } from './types';
 interface ContextInt {
   isSideOpen?: boolean;
   setIsSideOpen?: Dispatch<SetStateAction<boolean>>;
+  remFooter?: boolean;
+  setRemFooter?: Dispatch<SetStateAction<boolean>>;
   pos?: Position;
   setPos?: Dispatch<SetStateAction<Position>>;
   highlightElRefs?: MutableRefObject<HTMLElement[]>;
@@ -37,7 +39,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
   const imgRefs = useRef<HTMLElement[]>([]);
   const img2Refs = useRef<HTMLElement[]>([]);
   const [slidesPerView, setSlidesPerView] = useState(1);
-
+  const [remFooter, setRemFooter] = useState(false);
   const widthCheck = () => {
     if (innerWidth <= 750) setSlidesPerView(1);
     else if (innerWidth <= 1000) setSlidesPerView(2);
@@ -52,12 +54,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     });
   }, []);
 
-  useEffect(() => {
-    const highlightEls = highlightElRefs.current;
-    if (highlightEls.length) {
-    }
-  }, []);
-
   const sharedProps: ContextInt = {
     isSideOpen,
     setIsSideOpen,
@@ -69,6 +65,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     imgRefs,
     img2Refs,
     slidesPerView,
+    setRemFooter,
+    remFooter,
   };
 
   return (

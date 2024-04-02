@@ -15,8 +15,6 @@ const AboutTeam = () => {
   const { slidesPerView, highlightElRefs, hPos } = useGlobalContext();
   const intersectionRefs = useIntersection();
 
-  console.log({ slidesPerView });
-
   return (
     <Swiper
       pagination={{

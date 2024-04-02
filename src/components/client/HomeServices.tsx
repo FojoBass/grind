@@ -68,7 +68,7 @@ const HomeServices = () => {
                   <CustomLink
                     delay={0}
                     elClass='cta_btn'
-                    link='/pricing'
+                    link='/'
                     title='discover details'
                   />
                 </div>

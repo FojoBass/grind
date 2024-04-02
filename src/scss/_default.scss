@@ -10,7 +10,7 @@ $bg_highlight: #f5f7fa7e;
 
 :root {
   font-size: 10px;
-  // touch-action: none;
+  touch-action: pan-x;
 
   &.animate {
     .intersects {
@@ -29,7 +29,6 @@ body {
   background-color: $bg_main;
   color: $clr_txt;
   overflow-x: hidden;
-  // height: 1500vh;
 }
 
 h1,
@@ -48,6 +47,10 @@ button {
   outline: none;
   transition: all ease $trans_short;
   color: $clr_txt;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -55,6 +58,17 @@ a {
   text-decoration: none;
   transition: all ease $trans_short;
   color: $clr_txt;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+p.sidenav_title {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {
@@ -80,6 +94,7 @@ input {
 .center_sect {
   margin-inline: auto;
   padding: 8rem $pad_inline_gen;
+  overflow: hidden;
 
   &.sect {
     @include flex(flex-start, flex-start, column);

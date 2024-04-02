@@ -108,7 +108,7 @@ const HomePortfolio = () => {
                   <CustomLink
                     delay={0}
                     elClass='portfolio_opt_link'
-                    link={`/portfolio/${title}`}
+                    link={`/`}
                     key={title}
                   >
                     <div

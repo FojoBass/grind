@@ -13,8 +13,6 @@ const useMediaWrapperEffect = (
   wrapperRef: React.MutableRefObject<HTMLDivElement | null>,
   pos: OverlayPosEnum
 ) => {
-  console.log(wrapperRef);
-
   if (wrapperRef.current) {
     const wrapperEl = wrapperRef.current;
     const bgEl = wrapperEl.children[0] as HTMLElement;

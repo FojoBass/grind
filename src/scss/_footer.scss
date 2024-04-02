@@ -121,6 +121,10 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
 
+        @include media(max, 400px) {
+          grid-template-columns: 1fr 1fr;
+        }
+
         @include media(min, $lrg) {
           flex-basis: 45%;
         }
@@ -130,6 +134,17 @@
           transform: translateX(50px);
           transition: ease $gen_anim_trans;
           @include flex(flex-start, flex-start, column);
+
+          &:nth-of-type(even) {
+            @include media(max, 400px) {
+              text-align: right;
+
+              h3 {
+                margin-left: auto;
+              }
+            }
+          }
+
           h3 {
             font-size: 2rem;
             text-transform: capitalize;

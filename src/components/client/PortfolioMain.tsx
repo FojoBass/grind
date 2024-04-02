@@ -1,4 +1,5 @@
 'use client';
+import { useGlobalContext } from '@/context';
 import { portfolioOpts } from '@/data';
 import useIntersection from '@/hooks/useIntersection';
 import Image from 'next/image';
@@ -15,6 +16,7 @@ const PortfolioMain = () => {
   const initialY = useRef(0);
   const isPointerDown = useRef(false);
   const portOptRefs = useRef<HTMLDivElement[]>([]);
+  const { setRemFooter } = useGlobalContext();
 
   const handleHover: React.MouseEventHandler = (e) => {
     const targetEl = e.currentTarget as HTMLElement;
@@ -108,6 +110,7 @@ const PortfolioMain = () => {
         };
 
         pointerDownListener = (e) => {
+          sliderEl?.removeEventListener('wheel', wheelListener);
           initialY.current = e.clientY;
           isPointerDown.current = true;
         };
@@ -120,11 +123,12 @@ const PortfolioMain = () => {
         };
 
         pointerUpListener = () => {
+          sliderEl.addEventListener('wheel', wheelListener);
           initialY.current = 0;
           isPointerDown.current = false;
         };
 
-        sliderEl.addEventListener('resize', resizeListener);
+        addEventListener('resize', resizeListener);
         sliderEl.addEventListener('wheel', wheelListener);
         sliderEl.addEventListener('pointerdown', pointerDownListener);
         sliderEl.addEventListener('pointermove', pointerMoveListener);
@@ -141,12 +145,15 @@ const PortfolioMain = () => {
       }, 1000);
     }
 
+    setRemFooter && setRemFooter(true);
+
     return () => {
-      sliderEl?.removeEventListener('resize', resizeListener);
+      removeEventListener('resize', resizeListener);
       sliderEl?.removeEventListener('wheel', wheelListener);
       sliderEl?.removeEventListener('pointerdown', pointerDownListener);
       sliderEl?.removeEventListener('pointermove', pointerMoveListener);
       sliderEl?.removeEventListener('pointerup', pointerUpListener);
+      setRemFooter && setRemFooter(false);
     };
   }, []);
 

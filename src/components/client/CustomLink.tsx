@@ -39,15 +39,17 @@ const CustomLink: React.FC<LinkInt> = ({
 
   const handleRouteChange: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
-    const el = e.currentTarget as HTMLElement;
+    if (pathname !== link) {
+      const el = e.currentTarget as HTMLElement;
 
-    toggleAnimate(false);
+      toggleAnimate(false);
 
-    setTimeout(() => {
-      router.push(el.getAttribute('href') ?? '');
-    }, 1500);
+      setTimeout(() => {
+        router.push(el.getAttribute('href') ?? '');
+      }, 1000);
 
-    dispatch && dispatch(false);
+      dispatch && dispatch(false);
+    }
   };
 
   const handleMouseMove = (e: MouseEvent) => {

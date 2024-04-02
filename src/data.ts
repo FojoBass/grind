@@ -45,19 +45,19 @@ const navOpts: NavOptInt[] = [
     subOpts: [
       {
         title: 'our services',
-        link: '/',
+        link: '/ser',
       },
       {
         title: 'pricing',
-        link: '/',
+        link: '/pri',
       },
       {
         title: 'F.A.Q.',
-        link: '/',
+        link: '/fqa',
       },
       {
         title: 'testimonials',
-        link: '/',
+        link: '/test',
       },
     ],
   },
@@ -67,7 +67,7 @@ const navOpts: NavOptInt[] = [
   },
   {
     title: 'contacts',
-    link: '/',
+    link: '/cont',
   },
 ];
 

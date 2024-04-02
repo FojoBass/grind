@@ -7,7 +7,7 @@ import useIntersection from '@/hooks/useIntersection';
 import CustomLink from './CustomLink';
 import LazyLoad from './LazyLoad';
 
-// todo Add loading state for images
+
 
 const HomeAbout = () => {
   const intersectionRefs = useIntersection();

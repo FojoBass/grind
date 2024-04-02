@@ -80,7 +80,7 @@ const ImgScrollEff2: React.FC<ImgScrollEffInt> = ({
             if (diff > 40) {
               return 40;
             }
-            // initialInlineOffset.current = diff;
+
             return diff;
           });
         }

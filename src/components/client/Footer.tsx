@@ -4,10 +4,15 @@ import Logo from './Logo';
 import { footerLinks, socials } from '@/data';
 import CustomLink from './CustomLink';
 import useIntersection from '@/hooks/useIntersection';
+import { useGlobalContext } from '@/context';
 
 const Footer = () => {
   const intersectionRefs = useIntersection();
-  return (
+  const { remFooter } = useGlobalContext();
+
+  return remFooter ? (
+    <></>
+  ) : (
     <footer
       className='footer'
       ref={(el) => el && intersectionRefs.current.push(el)}
@@ -81,6 +86,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className='bottom'>Copyright © 2024. All Rights Reserved.</div>
     </footer>
   );

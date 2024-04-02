@@ -587,6 +587,11 @@
               flex-basis: 30%;
             }
 
+            @include media(max, 400px) {
+              font-size: 2rem;
+              flex-basis: unset;
+            }
+
             span {
               color: $clr_acc;
             }
@@ -708,6 +713,11 @@
             @include media(min, $xlrg) {
               font-size: 6.8rem;
             }
+
+            @include media(max, 400px) {
+              font-size: 4.5rem;
+              padding: 20px;
+            }
           }
         }
 
@@ -724,6 +734,10 @@
           @include media(min, $xlrg) {
             font-size: 2.3rem;
             width: 250px;
+          }
+
+          @include media(max, 400px) {
+            font-size: 1.7rem;
           }
 
           .icon {
@@ -758,6 +772,10 @@
           @include media(min, $xlrg) {
             font-size: 3.8rem;
             line-height: 1.2;
+          }
+
+          @include media(max, 400px) {
+            font-size: 2.7rem;
           }
         }
 

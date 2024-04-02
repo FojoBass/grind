@@ -64,7 +64,7 @@ const AboutContact = () => {
             We will design campaigns that make the world listen
           </h2>
           <div className='bottom'>
-            <CustomLink delay={0} elClass='' link='/contacts'>
+            <CustomLink delay={0} elClass='' link='/'>
               <div
                 className='icon'
                 ref={(el) => el && intersectionRefs.current.push(el)}
