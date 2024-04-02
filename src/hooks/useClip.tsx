@@ -68,7 +68,7 @@ const useClip: UseClipInt = (bgEl, overEl, pos) => {
              V${bH - br}
              a${br} ${br} 0 0 1 -${br} ${br}
              H${br}
-             a${br} ${br} 0 0 0 -${br} -${br}
+             a${br} ${br} 0 0 1 -${br} -${br}
              Z
             `;
         break;

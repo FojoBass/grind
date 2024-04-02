@@ -12,6 +12,14 @@ import portImg7 from '../public/images/portfolio/portfolio07.jpg';
 import portImg8 from '../public/images/portfolio/portfolio08.jpg';
 import portImg9 from '../public/images/portfolio/portfolio09.jpg';
 import aboutImg1 from '../public/images/about/about_img1.jpg';
+import aboutImg2 from '../public/images/about/about_img2.jpg';
+import aboutImg3 from '../public/images/about/about_img3.jpg';
+import teamImg1 from '../public/images/team/team_img.jpg';
+import teamImg2 from '../public/images/team/team_img2.jpg';
+import teamImg3 from '../public/images/team/team_img3.jpg';
+import teamImg4 from '../public/images/team/team_img4.jpg';
+import teamImg5 from '../public/images/team/team_img5.jpg';
+import teamImg6 from '../public/images/team/team_img6.jpg';
 
 export {
   homeImg1,
@@ -28,4 +36,12 @@ export {
   portImg8,
   portImg9,
   aboutImg1,
+  aboutImg2,
+  aboutImg3,
+  teamImg1,
+  teamImg2,
+  teamImg3,
+  teamImg4,
+  teamImg5,
+  teamImg6,
 };

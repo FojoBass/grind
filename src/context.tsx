@@ -22,6 +22,7 @@ interface ContextInt {
   hPos?: Position[];
   imgRefs?: MutableRefObject<HTMLElement[]>;
   img2Refs?: MutableRefObject<HTMLElement[]>;
+  slidesPerView?: number;
 }
 
 const AppContext = createContext<ContextInt>({});
@@ -35,6 +36,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
   const [hPos, setHPos] = useState<Position[]>([]);
   const imgRefs = useRef<HTMLElement[]>([]);
   const img2Refs = useRef<HTMLElement[]>([]);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+
+  const widthCheck = () => {
+    if (innerWidth <= 750) setSlidesPerView(1);
+    else if (innerWidth <= 1000) setSlidesPerView(2);
+    else setSlidesPerView(3);
+  };
+
+  useEffect(() => {
+    widthCheck();
+
+    addEventListener('resize', () => {
+      widthCheck();
+    });
+  }, []);
 
   useEffect(() => {
     const highlightEls = highlightElRefs.current;
@@ -52,6 +68,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     setHPos,
     imgRefs,
     img2Refs,
+    slidesPerView,
   };
 
   return (

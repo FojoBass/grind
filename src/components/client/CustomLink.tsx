@@ -87,7 +87,6 @@ const CustomLink: React.FC<LinkInt> = ({
     <Link
       className={`${elClass} ${isLinkActive ? 'active' : ''}`}
       href={link}
-      // style={{ transitionDelay: `${delay}ms` }}
       onMouseEnter={isSocialLink ? handleMouseEnter : undefined}
       onMouseLeave={isSocialLink ? handleMouseLeave : undefined}
       onClick={handleRouteChange}

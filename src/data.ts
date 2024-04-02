@@ -1,6 +1,22 @@
 import { FaFacebookF, FaPatreon, FaTiktok, FaXTwitter } from 'react-icons/fa6';
-import { portImg1, portImg2, portImg3, portImg4 } from './assets';
 import {
+  portImg1,
+  portImg2,
+  portImg3,
+  portImg4,
+  portImg5,
+  portImg6,
+  portImg7,
+  portImg8,
+  teamImg1,
+  teamImg2,
+  teamImg3,
+  teamImg4,
+  teamImg5,
+  teamImg6,
+} from './assets';
+import {
+  AboutServicesInt,
   FooterLinksInt,
   FullServiceOptInt,
   LinkInt,
@@ -8,6 +24,7 @@ import {
   PortCategEnum,
   PortOptInt,
   SocialsInt,
+  TeamMemsInt,
   TestimonialsInt,
   WhyUsOptInt,
 } from './types';
@@ -28,19 +45,19 @@ const navOpts: NavOptInt[] = [
     subOpts: [
       {
         title: 'our services',
-        link: '/services',
+        link: '/',
       },
       {
         title: 'pricing',
-        link: '/pricing',
+        link: '/',
       },
       {
         title: 'F.A.Q.',
-        link: '/faq',
+        link: '/',
       },
       {
         title: 'testimonials',
-        link: '/testimonials',
+        link: '/',
       },
     ],
   },
@@ -50,16 +67,16 @@ const navOpts: NavOptInt[] = [
   },
   {
     title: 'contacts',
-    link: '/contacts',
+    link: '/',
   },
 ];
 
 const servicesOpts: LinkInt[] = [
-  { title: 'graphic design', link: '/services/graphic-design' },
-  { title: 'content creation', link: '/services/content-creationg' },
-  { title: 'branding', link: '/services/branding' },
-  { title: 'marketing', link: '/services/marketing' },
-  { title: 'web design', link: '/services/web-design' },
+  { title: 'graphic design', link: '/' },
+  { title: 'content creation', link: '/' },
+  { title: 'branding', link: '/' },
+  { title: 'marketing', link: '/' },
+  { title: 'web design', link: '/' },
 ];
 
 const fullServiceOpt: FullServiceOptInt[] = [
@@ -218,23 +235,23 @@ const footerLinks: FooterLinksInt[] = [
     title: 'services',
     linkOpts: [
       {
-        link: '/services/branding',
+        link: '/',
         title: 'branding',
       },
       {
-        link: '/services/marketing',
+        link: '/',
         title: 'marketing',
       },
       {
-        link: '/services/graphic_design',
+        link: '/',
         title: 'graphic design',
       },
       {
-        link: '/services/web_design',
+        link: '/',
         title: 'web design',
       },
       {
-        link: '/services/content_creation',
+        link: '/',
         title: 'content creation',
       },
     ],
@@ -247,11 +264,11 @@ const footerLinks: FooterLinksInt[] = [
         title: 'about us',
       },
       {
-        link: '/testimonials',
+        link: '/',
         title: 'testimonials',
       },
       {
-        link: '/contacts',
+        link: '/',
         title: 'get in touch',
       },
     ],
@@ -260,15 +277,15 @@ const footerLinks: FooterLinksInt[] = [
     title: 'resources',
     linkOpts: [
       {
-        link: '/pricing',
+        link: '/',
         title: 'pricing',
       },
       {
-        link: '/faq',
+        link: '/',
         title: 'help center',
       },
       {
-        link: '/services',
+        link: '/',
         title: 'our services',
       },
       {
@@ -283,6 +300,105 @@ const footerLinks: FooterLinksInt[] = [
   },
 ];
 
+const teamMems: TeamMemsInt[] = [
+  {
+    position: 'ceo, founder',
+    name: 'Lorem Ipsum',
+    imgUrl: teamImg1,
+  },
+  {
+    position: 'concept artist',
+    name: 'Dolor Itsum',
+    imgUrl: teamImg2,
+  },
+  {
+    position: 'client manager',
+    name: 'Jane Doe',
+    imgUrl: teamImg3,
+  },
+  {
+    position: 'developer',
+    name: 'John Doe',
+    imgUrl: teamImg4,
+  },
+  {
+    position: 'developer',
+    name: 'Alexa Smith',
+    imgUrl: teamImg5,
+  },
+  {
+    position: 'developer',
+    name: 'Baxter West',
+    imgUrl: teamImg6,
+  },
+];
+
+const aboutServices: AboutServicesInt[] = [
+  {
+    title: 'branding',
+    info: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place.',
+  },
+  {
+    title: 'marketing',
+    info: 'A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.',
+  },
+  {
+    title: 'graphic design',
+    info: 'The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. ',
+  },
+  {
+    title: 'web design',
+    info: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder.',
+  },
+  {
+    title: 'content creation',
+    info: 'The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common.',
+  },
+];
+
+const portfolioOpts: PortOptInt[] = [
+  {
+    categ: PortCategEnum.br,
+    imgUrl: portImg1,
+    title: 'Curology',
+  },
+  {
+    categ: PortCategEnum.ad,
+    imgUrl: portImg2,
+    title: 'Cookie Dough',
+  },
+  {
+    categ: PortCategEnum.mk,
+    imgUrl: portImg3,
+    title: 'Gaming Power',
+  },
+  {
+    categ: PortCategEnum.ad,
+    title: 'Riot Energy',
+    imgUrl: portImg4,
+  },
+  {
+    categ: PortCategEnum.mk,
+    title: 'Smoothie',
+    imgUrl: portImg5,
+  },
+  {
+    categ: PortCategEnum.br,
+    title: 'Positive Beverage',
+    imgUrl: portImg6,
+  },
+  {
+    categ: PortCategEnum.br,
+    title: 'Fashion Makeup',
+    imgUrl: portImg7,
+  },
+  {
+    categ: PortCategEnum.ad,
+    title: 'Kombucha',
+    imgUrl: portImg8,
+  },
+];
+
 export {
   navOpts,
   servicesOpts,
@@ -294,4 +410,7 @@ export {
   testimonials,
   socials,
   footerLinks,
+  teamMems,
+  aboutServices,
+  portfolioOpts,
 };

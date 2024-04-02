@@ -10,6 +10,7 @@ $bg_highlight: #f5f7fa7e;
 
 :root {
   font-size: 10px;
+  // touch-action: none;
 
   &.animate {
     .intersects {
@@ -214,14 +215,18 @@ input {
     transform: translateX(30px);
     opacity: 0;
 
+    &.show {
+      display: block;
+    }
+
     @include media(min, $mid) {
       display: block;
     }
   }
 }
 
-.text_over_top {
-  @include position(absolute, right, top, 0, 0);
+.text_over_top,
+.text_over_bottom {
   width: 250px;
   padding: 10px 15px;
   font-size: 1.5rem;
@@ -232,14 +237,34 @@ input {
   }
 }
 
+.text_over_top {
+  @include position(absolute, right, top, 0, 0);
+}
+
+.text_over_bottom {
+  @include position(absolute, right, bottom, 0, 0);
+}
+
 .bottom_line {
   position: relative;
 
   &::before {
     content: '';
     width: 100%;
-    height: 0.5px;
+    height: 1px;
     @include position(absolute, left, bottom, 0, 0);
+    background: $bg_line_grad;
+  }
+}
+
+.top_line {
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    @include position(absolute, left, top, 0, 0);
     background: $bg_line_grad;
   }
 }

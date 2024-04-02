@@ -1,0 +1,145 @@
+@use 'config' as *;
+
+#portfolio_sect {
+  position: fixed;
+  inset: 0;
+  background-color: $bg_main;
+  z-index: 1;
+  overflow: hidden;
+
+  main {
+    scale: 1.1;
+    opacity: 0;
+    transition: all ease $gen_anim_trans;
+
+    .bg_img {
+      @include position(absolute, left, top, 0, 0);
+      display: block;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      opacity: 0;
+      z-index: -1;
+      transition: all ease $trans_mid;
+      // object-position: center -300px;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    .slider {
+      background-color: #07090dc0;
+      transform: translateY(0);
+
+      .port_opt {
+        cursor: pointer;
+
+        &:hover {
+          background: radial-gradient(
+            100vw circle at center top,
+            $bg_light,
+            transparent 50%
+          );
+
+          .port_info .img_wrapper {
+            opacity: 1 !important;
+          }
+
+          .icon {
+            background-color: $clr_acc !important;
+            border-color: $clr_acc !important;
+          }
+        }
+
+        .center_sect {
+          @include flex(space-between, center);
+          gap: 4rem;
+          padding-block: 4rem;
+
+          .port_info {
+            width: 55%;
+            position: relative;
+
+            .img_wrapper {
+              width: 80px;
+              @include position(absolute, left, top, -105px, 50%);
+              @include uniTranslate(Y, -50%);
+              display: none;
+              opacity: 0;
+              transition: all ease $trans_mid;
+
+              @include media(min, $mid) {
+                display: block;
+              }
+
+              @include media(min, $lrg) {
+                width: 100px;
+                left: -125px;
+              }
+
+              img {
+                border-radius: 15px;
+              }
+            }
+
+            .categ {
+              font-size: 1.2rem;
+              text-transform: uppercase;
+              font-weight: bold;
+
+              @include media(min, $mid) {
+                font-size: 1.3rem;
+              }
+            }
+
+            .title {
+              font-size: 2.1rem;
+              font-weight: 600;
+
+              @include media(min, $mid) {
+                font-size: 3.5rem;
+              }
+
+              @include media(min, $lrg) {
+                font-size: 4.5rem;
+              }
+
+              @include media(min, $xlrg) {
+                font-size: 5.5rem;
+              }
+            }
+          }
+
+          .icon {
+            border: 2px solid $clr_sub;
+            font-size: 3.5rem;
+            color: $clr_sub;
+            border-radius: 1rem;
+            padding: 10px 10px 2px;
+            transition: all ease $trans_mid;
+
+            @include media(min, $mid) {
+              font-size: 4.5rem;
+              padding: 15px 15px 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .int_footer {
+    transform: translateY(30px);
+    @include position(absolute, left, bottom, 0, 0);
+    width: 100%;
+  }
+
+  .port_footer {
+    text-align: center;
+    padding-block: 2rem;
+    font-size: 1.5rem;
+    backdrop-filter: blur(10px);
+    background-color: #07090dde;
+  }
+}

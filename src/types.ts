@@ -56,6 +56,17 @@ export interface FooterLinksInt {
   linkOpts: LinkInt[];
 }
 
+export interface TeamMemsInt {
+  position: string;
+  name: string;
+  imgUrl: StaticImageData;
+}
+
+export interface AboutServicesInt {
+  title: string;
+  info: string;
+}
+
 export enum OverlayPosEnum {
   tr = 'tr',
   br = 'br',
