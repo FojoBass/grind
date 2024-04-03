@@ -24,7 +24,13 @@ const AboutAbout = () => {
 
         <div className='bottom'>
           <div className='left'>
-            <h1 ref={(el) => el && intersectionRefs.current.push(el)}>
+            <h1
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
+            >
               Igniting brands that spark movements.
             </h1>
 
@@ -43,7 +49,11 @@ const AboutAbout = () => {
 
           <div
             className='right'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <p>
               We help creative agencies, designers, and other creative people to

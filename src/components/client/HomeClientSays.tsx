@@ -27,7 +27,11 @@ const HomeClientSays = () => {
         <div className='center_sect sect'>
           <div
             className='sect_info'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <HomeSectInfo
               title='What Clients Say'
@@ -99,11 +103,19 @@ const HomeClientSays = () => {
           <MediaWrapper elClass='form_container' pos={OverlayPosEnum.tr}>
             <div
               className='form_wrapper wrapper'
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
             >
               <h2
                 className='title'
-                ref={(el) => el && intersectionRefs.current.push(el)}
+                ref={(el) =>
+                  el &&
+                  !intersectionRefs.current.find((rel) => rel === el) &&
+                  intersectionRefs.current.push(el)
+                }
               >
                 Ready to set your Brand ablaze?
               </h2>
@@ -114,11 +126,19 @@ const HomeClientSays = () => {
                   name=''
                   id=''
                   placeholder='email@example.com'
-                  ref={(el) => el && intersectionRefs.current.push(el)}
+                  ref={(el) =>
+                    el &&
+                    !intersectionRefs.current.find((rel) => rel === el) &&
+                    intersectionRefs.current.push(el)
+                  }
                 />
                 <button
                   className='submit_btn'
-                  ref={(el) => el && intersectionRefs.current.push(el)}
+                  ref={(el) =>
+                    el &&
+                    !intersectionRefs.current.find((rel) => rel === el) &&
+                    intersectionRefs.current.push(el)
+                  }
                 >
                   <span className='icon'>
                     <FaArrowRight />
@@ -129,7 +149,11 @@ const HomeClientSays = () => {
 
             <p
               className='info_box text_over_top'
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
             >
               Let's craft a visual identity that ignites passion and loyalty. ✨
             </p>

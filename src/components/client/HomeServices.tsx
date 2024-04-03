@@ -15,7 +15,11 @@ const HomeServices = () => {
       <div className='center_sect sect'>
         <div
           className='left_side sect_info'
-          ref={(el) => el && intersectionRefs.current.push(el)}
+          ref={(el) =>
+            el &&
+            !intersectionRefs.current.find((rel) => rel === el) &&
+            intersectionRefs.current.push(el)
+          }
         >
           <HomeSectInfo
             title='Our Services'

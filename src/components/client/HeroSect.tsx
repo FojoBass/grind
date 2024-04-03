@@ -17,13 +17,21 @@ const HeroSect = () => {
         <header className='top'>
           <h1 className='hero_heading'>
             <span
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
               className='span1'
             >
               Bring your creative
             </span>{' '}
             <span
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
               className='span2'
             >
               ideas into <span className='heading_highlight'>Reality!</span>
@@ -32,7 +40,11 @@ const HeroSect = () => {
 
           <div
             className='img_wrapper'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <LazyLoad alt='image' src={homeImg1} />
           </div>
@@ -41,14 +53,22 @@ const HeroSect = () => {
         <MediaWrapper elClass='mid' pos={OverlayPosEnum.tr}>
           <div
             className='video_wrapper wrapper'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <video src='/videos/vid.mp4' loop muted autoPlay></video>
           </div>
 
           <p
             className='info_box text_over_top'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
             impedit voluptates nostrum autem.
@@ -58,7 +78,11 @@ const HeroSect = () => {
         <div className='bottom'>
           <p
             className='info'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
             corporis ducimus facere non nisi excepturi? Perspiciatis, tempora.
@@ -74,7 +98,11 @@ const HeroSect = () => {
                   } as React.CSSProperties
                 }
                 key={service.title}
-                ref={(el) => el && intersectionRefs.current.push(el)}
+                ref={(el) =>
+                  el &&
+                  !intersectionRefs.current.find((rel) => rel === el) &&
+                  intersectionRefs.current.push(el)
+                }
               >
                 <CustomLink
                   key={service.title}

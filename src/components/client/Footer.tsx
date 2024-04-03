@@ -15,14 +15,22 @@ const Footer = () => {
   ) : (
     <footer
       className='footer'
-      ref={(el) => el && intersectionRefs.current.push(el)}
+      ref={(el) =>
+        el &&
+        !intersectionRefs.current.find((rel) => rel === el) &&
+        intersectionRefs.current.push(el)
+      }
     >
       <div className='top'>
         <div className='center_sect'>
           <div className='left'>
             <div
               className='int_wrapper'
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
             >
               <Logo />
               <p className='info'>
@@ -33,7 +41,13 @@ const Footer = () => {
             </div>
 
             <div className='socials'>
-              <h4 ref={(el) => el && intersectionRefs.current.push(el)}>
+              <h4
+                ref={(el) =>
+                  el &&
+                  !intersectionRefs.current.find((rel) => rel === el) &&
+                  intersectionRefs.current.push(el)
+                }
+              >
                 Follow us:
               </h4>
 
@@ -44,7 +58,11 @@ const Footer = () => {
                     style={{
                       transitionDelay: `${(index + 1) * 200 - index * 100}ms`,
                     }}
-                    ref={(el) => el && intersectionRefs.current.push(el)}
+                    ref={(el) =>
+                      el &&
+                      !intersectionRefs.current.find((rel) => rel === el) &&
+                      intersectionRefs.current.push(el)
+                    }
                     key={id}
                   >
                     <CustomLink
@@ -69,7 +87,11 @@ const Footer = () => {
               <div
                 className='sect_wrapper'
                 key={title}
-                ref={(el) => el && intersectionRefs.current.push(el)}
+                ref={(el) =>
+                  el &&
+                  !intersectionRefs.current.find((rel) => rel === el) &&
+                  intersectionRefs.current.push(el)
+                }
               >
                 <h3>{title}</h3>
                 {linkOpts.map(({ link, title }) => (

@@ -13,7 +13,11 @@ const IntWrapper: React.FC<IntWrapperInt> = ({ children, elClass }) => {
   return (
     <div
       className={`int_wrapper ${elClass}`}
-      ref={(el) => el && intersectionRefs.current.push(el)}
+      ref={(el) =>
+        el &&
+        !intersectionRefs.current.find((rel) => rel === el) &&
+        intersectionRefs.current.push(el)
+      }
     >
       {children}
     </div>

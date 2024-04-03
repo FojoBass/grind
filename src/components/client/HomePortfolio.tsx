@@ -20,7 +20,11 @@ const HomePortfolio = () => {
         <div className='center_sect sect'>
           <div
             className='sect_info'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <HomeSectInfo
               title='Why Choose Us'
@@ -85,7 +89,11 @@ const HomePortfolio = () => {
         <div className='center_sect sect'>
           <div
             className='sect_info'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <HomeSectInfo
               title='Our Portfolio'

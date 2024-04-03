@@ -31,7 +31,7 @@ const useIntersection = () => {
 
       return () => observer.disconnect();
     }
-  }, [intersectionRefs.current.length]);
+  }, [intersectionRefs.current]);
 
   return intersectionRefs;
 };

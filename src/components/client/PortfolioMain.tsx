@@ -42,7 +42,7 @@ const PortfolioMain = () => {
     }
   };
 
-  const setTransform = (dY: number) => {
+  const setTransform = (dY: number, isTouch?: boolean) => {
     const sliderEl = sliderRef.current;
 
     if (sliderEl) {
@@ -52,7 +52,11 @@ const PortfolioMain = () => {
         ]
       );
 
-      sliderEl.style.transform = `translateY(${iY + dY / 5}px)`;
+      console.log({ dY, iY });
+
+      sliderEl.style.transform = !isTouch
+        ? `translateY(${iY + dY / 5}px)`
+        : `translateY(${iY + dY}px)`;
     }
   };
 
@@ -106,11 +110,11 @@ const PortfolioMain = () => {
 
         wheelListener = (e) => {
           const dY = -e.deltaY;
+
           setTransform(dY);
         };
 
         pointerDownListener = (e) => {
-          sliderEl?.removeEventListener('wheel', wheelListener);
           initialY.current = e.clientY;
           isPointerDown.current = true;
         };
@@ -118,12 +122,13 @@ const PortfolioMain = () => {
         pointerMoveListener = (e) => {
           if (isPointerDown.current) {
             const dY = e.clientY - initialY.current;
-            setTransform(dY);
+
+            setTransform(dY, true);
+            initialY.current = e.clientY;
           }
         };
 
         pointerUpListener = () => {
-          sliderEl.addEventListener('wheel', wheelListener);
           initialY.current = 0;
           isPointerDown.current = false;
         };
@@ -158,7 +163,13 @@ const PortfolioMain = () => {
   }, []);
 
   return (
-    <main ref={(el) => el && intersectionRefs.current.push(el)}>
+    <main
+      ref={(el) =>
+        el &&
+        !intersectionRefs.current.find((rel) => rel === el) &&
+        intersectionRefs.current.push(el)
+      }
+    >
       {portfolioOpts.map(({ imgUrl, title }, index) => (
         <Image
           key={title}
@@ -176,6 +187,34 @@ const PortfolioMain = () => {
 
       <div className='slider_wrapper' ref={sliderWrapperRef}>
         <div className='slider' ref={sliderRef}>
+          {portfolioOpts.map(({ categ, imgUrl, title }) => (
+            <div
+              className='port_opt bottom_line'
+              key={title}
+              data-id={title}
+              onMouseEnter={handleHover}
+              ref={(el) =>
+                el &&
+                !portOptRefs.current.find((rel) => rel === el) &&
+                portOptRefs.current.push(el)
+              }
+            >
+              <div className='center_sect'>
+                <div className='port_info'>
+                  <div className='img_wrapper'>
+                    <Image alt={title} src={imgUrl} />
+                  </div>
+
+                  <p className='categ'>{categ}</p>
+                  <h3 className='title'>{title}</h3>
+                </div>
+
+                <span className='icon'>
+                  <GoArrowUpRight />
+                </span>
+              </div>
+            </div>
+          ))}
           {portfolioOpts.map(({ categ, imgUrl, title }) => (
             <div
               className='port_opt bottom_line'

@@ -30,6 +30,8 @@
     .slider {
       background-color: #07090dc0;
       transform: translateY(0);
+      touch-action: pan-x;
+      // transition: transform linear $trans_short;
 
       .port_opt {
         cursor: pointer;

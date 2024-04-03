@@ -70,7 +70,7 @@ const ImgScrollEff = ({
   return (
     <div
       className='img_wrapper scroll_eff'
-      ref={(el) => el && intersectionRefs.current.push(el)}
+      ref={(el) => el && !intersectionRefs.current.find(rel=>rel===el) && intersectionRefs.current.push(el)}
     >
       {children}
     </div>

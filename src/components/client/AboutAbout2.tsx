@@ -20,7 +20,11 @@ const AboutAbout2 = () => {
         <div className='right_side'>
           <div
             className='int_wrapper'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <h3 className='heading'>From passion project To brand catalyst</h3>
             <p className='more_heading'>
@@ -40,7 +44,11 @@ const AboutAbout2 = () => {
 
           <div
             className='link_wrapper'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <CustomLink delay={0} elClass='' link='/contacts'>
               <span className='icon'>

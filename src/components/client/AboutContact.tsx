@@ -26,14 +26,22 @@ const AboutContact = () => {
           <MediaWrapper elClass='box_container' pos={OverlayPosEnum.br}>
             <div
               className='box wrapper'
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
             >
               <h1>Need to amplify your voice?</h1>
             </div>
 
             <p
               className='info_box text_over_bottom show'
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
             >
               Let's chat about your goals{' '}
               <span className='icon'>
@@ -67,7 +75,11 @@ const AboutContact = () => {
             <CustomLink delay={0} elClass='' link='/'>
               <div
                 className='icon'
-                ref={(el) => el && intersectionRefs.current.push(el)}
+                ref={(el) =>
+                  el &&
+                  !intersectionRefs.current.find((rel) => rel === el) &&
+                  intersectionRefs.current.push(el)
+                }
               >
                 <GoArrowUpRight />
               </div>
@@ -75,7 +87,11 @@ const AboutContact = () => {
 
             <div
               className='img_wrapper'
-              ref={(el) => el && intersectionRefs.current.push(el)}
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
             >
               <LazyLoad alt='' src={aboutImg3} />
             </div>

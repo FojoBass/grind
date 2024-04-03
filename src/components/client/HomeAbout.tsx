@@ -7,8 +7,6 @@ import useIntersection from '@/hooks/useIntersection';
 import CustomLink from './CustomLink';
 import LazyLoad from './LazyLoad';
 
-
-
 const HomeAbout = () => {
   const intersectionRefs = useIntersection();
 
@@ -22,7 +20,11 @@ const HomeAbout = () => {
         <div className='right_side'>
           <div
             className='int_wrapper'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <h3 className='heading'>
               We are a passionate team of designers and developers.
@@ -42,7 +44,11 @@ const HomeAbout = () => {
 
           <div
             className='link_wrapper'
-            ref={(el) => el && intersectionRefs.current.push(el)}
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
           >
             <CustomLink delay={0} elClass='' link='/about'>
               <span className='icon'>
