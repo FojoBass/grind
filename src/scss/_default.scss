@@ -98,11 +98,13 @@ input {
   &.sect {
     @include flex(flex-start, flex-start, column);
     gap: 2.5rem;
+    overflow: unset;
 
     @include media(min, $lrg) {
       flex-direction: row;
       justify-content: space-between;
       gap: 3.5rem;
+      align-items: stretch;
     }
   }
 

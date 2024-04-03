@@ -25,20 +25,22 @@ const HomeClientSays = () => {
           </ImgScrollEff2>
         </div>
         <div className='center_sect sect'>
-          <div
-            className='sect_info'
-            ref={(el) =>
-              el &&
-              !intersectionRefs.current.find((rel) => rel === el) &&
-              intersectionRefs.current.push(el)
-            }
-          >
-            <HomeSectInfo
-              title='What Clients Say'
-              info='Here are some of the most inspiring reviews from our clients. Your opinion is very important to us ’cause we have always try to evolve and improve in the professional field and work on mistakes.'
-              url='/about'
-              urlTitle='read all testimonials'
-            />
+          <div className='first_side'>
+            <div
+              className='sect_info'
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
+            >
+              <HomeSectInfo
+                title='What Clients Say'
+                info='Here are some of the most inspiring reviews from our clients. Your opinion is very important to us ’cause we have always try to evolve and improve in the professional field and work on mistakes.'
+                url='/about'
+                urlTitle='read all testimonials'
+              />
+            </div>
           </div>
 
           <div className='right_side'>

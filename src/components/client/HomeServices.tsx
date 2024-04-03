@@ -13,21 +13,23 @@ const HomeServices = () => {
   return (
     <section className='services'>
       <div className='center_sect sect'>
-        <div
-          className='left_side sect_info'
-          ref={(el) =>
-            el &&
-            !intersectionRefs.current.find((rel) => rel === el) &&
-            intersectionRefs.current.push(el)
-          }
-        >
-          <HomeSectInfo
-            title='Our Services'
-            info=' We offer a wide range of creative services to help business of all
+        <div className='first_side'>
+          <div
+            className='left_side sect_info'
+            ref={(el) =>
+              el &&
+              !intersectionRefs.current.find((rel) => rel === el) &&
+              intersectionRefs.current.push(el)
+            }
+          >
+            <HomeSectInfo
+              title='Our Services'
+              info=' We offer a wide range of creative services to help business of all
             sizes achieve their goals'
-            url='/services'
-            urlTitle='discover all services'
-          />
+              url='/services'
+              urlTitle='discover all services'
+            />
+          </div>
         </div>
 
         <div className='right_side'>

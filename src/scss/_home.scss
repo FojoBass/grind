@@ -492,7 +492,7 @@
   // * Why Us
   .why_us {
     .center_sect {
-      .sect_info {
+      .first_side {
         @include media(min, $lrg) {
           flex-basis: 45%;
         }
@@ -608,7 +608,7 @@
   // * Portfolio
   .portfolio {
     .center_sect {
-      .sect_info {
+      .first_side {
         @include media(min, $lrg) {
           flex-basis: 45%;
         }

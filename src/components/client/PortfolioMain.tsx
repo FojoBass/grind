@@ -52,8 +52,6 @@ const PortfolioMain = () => {
         ]
       );
 
-      console.log({ dY, iY });
-
       sliderEl.style.transform = !isTouch
         ? `translateY(${iY + dY / 5}px)`
         : `translateY(${iY + dY}px)`;

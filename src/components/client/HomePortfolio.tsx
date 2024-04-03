@@ -18,20 +18,22 @@ const HomePortfolio = () => {
     <>
       <section className='why_us'>
         <div className='center_sect sect'>
-          <div
-            className='sect_info'
-            ref={(el) =>
-              el &&
-              !intersectionRefs.current.find((rel) => rel === el) &&
-              intersectionRefs.current.push(el)
-            }
-          >
-            <HomeSectInfo
-              title='Why Choose Us'
-              info='We are a passionate team of designers and developers who believe in the power of creativity. We help creative professionals create a strong online presence that showcases their work and tells their story.'
-              url='/about'
-              urlTitle='learn more about us'
-            />
+          <div className='first_side'>
+            <div
+              className='sect_info'
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
+            >
+              <HomeSectInfo
+                title='Why Choose Us'
+                info='We are a passionate team of designers and developers who believe in the power of creativity. We help creative professionals create a strong online presence that showcases their work and tells their story.'
+                url='/about'
+                urlTitle='learn more about us'
+              />
+            </div>
           </div>
 
           <div className='right_side'>
@@ -87,20 +89,22 @@ const HomePortfolio = () => {
 
       <section className='portfolio'>
         <div className='center_sect sect'>
-          <div
-            className='sect_info'
-            ref={(el) =>
-              el &&
-              !intersectionRefs.current.find((rel) => rel === el) &&
-              intersectionRefs.current.push(el)
-            }
-          >
-            <HomeSectInfo
-              title='Our Portfolio'
-              info='We are proud of our work, and we are always looking for new challenges. Take a look at some of our recent creative portfolio works.'
-              url='/portfolio'
-              urlTitle='explore full portfolio'
-            />
+          <div className='first_side'>
+            <div
+              className='sect_info'
+              ref={(el) =>
+                el &&
+                !intersectionRefs.current.find((rel) => rel === el) &&
+                intersectionRefs.current.push(el)
+              }
+            >
+              <HomeSectInfo
+                title='Our Portfolio'
+                info='We are proud of our work, and we are always looking for new challenges. Take a look at some of our recent creative portfolio works.'
+                url='/portfolio'
+                urlTitle='explore full portfolio'
+              />
+            </div>
           </div>
 
           <div className='right_side'>
